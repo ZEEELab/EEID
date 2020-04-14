@@ -47,7 +47,7 @@ frame.on("ready", () => {
     	var c = new Circle(agent_radius, 'white')
     		.center()
     		.pos(rand_x, rand_y)
-    		.addPhysics({restitution:1.0, friction:1.0, angular:0.0, linear:2.5})
+    		.addPhysics({restitution:1.0, friction:1.0, angular:0.0, linear:1})
 
     	//physics.addMap(c_body, c);
     	uninfected.addChild(c);
@@ -118,7 +118,7 @@ frame.on("ready", () => {
    	circle2
         .center()
 		.pos(rand_x, rand_y)
-		.addPhysics({restitution:1.0, friction:1.0, angular:0.0, linear:2.5})
+		.addPhysics({restitution:1.0, friction:1.0, angular:0.0, linear:1})
 
     circle2.infected = true;
     circle2.infection_time = 0;
@@ -174,7 +174,7 @@ frame.on("ready", () => {
                 List.slider("Infection Prob", 0, 100, 30, infection_converter),
                 List.slider("Recovery Time", 200, 2000, 1000, function(val) {infection_lifetime = val})
                 ],
-            "Movement":[List.slider("Viscosity", 0, 100, 50, visc_update)]
+            "Movement":[List.slider("Viscosity", 0, 100, 20, visc_update)]
         }
     }
 
