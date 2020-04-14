@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>ZIM - Code Creativity</title>
+<script src="assets/js/createjs_min.js"></script>
+<script src="assets/js/zim.js"></script>
+
+<script src="assets/js/Box2dWeb-2.1.a.3.min.js"></script>
+<script src="assets/js/physics_2.0.js"></script><!-- helper code for box2D -->
+<script src="assets/js/Chart.min.js"></script>
+
+<script>
+// https://zimjs.com - JavaScript Canvas Framework - Code Creativity!
+var circle2 = new Circle(3, 'red')
+
+var frame = new Frame("sim_holder", 800, 600, dark, light);
+frame.on("ready", () => {
+    var stage = frame.stage;
+    var stageW = frame.width;
+    var stageH = frame.height;
+
+    var prob_infect = 0.3;
+
+    var borders = {x:3, y:3, width:stageW-10, height:stageH-10}
+    var physics = new zim.Physics(gravity = 0, borders=borders, frame=frame);
+
+    var agent_radius = 3;
+    var impulse_strength = 0.005
+
+    STYLE = {
+        size: 22,
+    };
+
+    var pop_size = 600;
+
+    var uninfected = new zim.Container();
+    stage.addChild(uninfected);
+
+    var infected = new zim.Container();
+    stage.addChild(infected);
+
+    zim.loop(pop_size, function(i) {
+    	rand_x = rand(agent_radius*2, stageW - agent_radius*2)
+    	rand_y = rand(agent_radius*2, stageH-agent_radius*2)
+
+    	var c = new Circle(agent_radius, 'white')
+    		.center()
+    		.pos(rand_x, rand_y)
+    		.addPhysics({restitution:1.0, friction:1.0, angular:0.0, linear:2.5})
+
+    	//physics.addMap(c_body, c);
+    	uninfected.addChild(c);
+    	c.infected = false;
+
+        c.addEventListener("click", function(e) {
+            if (c.infected) {
+                c.infected = false;
+                c.color="white";
+                infected.removeChild(c);
+                uninfected.addChild(c);
+            }
+            else {
+                c.infected = true;
+                c.color = "red";
+                uninfected.removeChild(c);
+                infected.addChild(c);
+                c.infected_by = "User";
+            }
+
+        })
+
+    	c.contact(function (obj, body) {
+    		//if we should become infected...
+    		if (!c.infected && obj.infected && Math.random() < prob_infect) {
+    			//infect new org...
+    			uninfected.removeChild(c);
+    			infected.addChild(c);
+    			c.infected = true;
+    			c.color="red";
+    			c.infected_by = obj;
+    			c.infection_time = 0;
+    		}
+    		if (c.infected && obj.infected == false && Math.random() < prob_infect) {
+    			uninfected.removeChild(obj);
+    			infected.addChild(obj);
+    			obj.infected = true;
+    			obj.color="red";
+    			obj.infected_by = c;
+    			obj.infection_time = 0;
+    		}
+
+    		//lets try to stay off the walls.
+    		if (obj.type == "Border") {
+    			switch(obj.side) {
+    				case 'top': { 
+    					c.impulse(rand(-impulse_strength,impulse_strength), -rand(impulse_strength/2))
+    				}
+    				case 'bottom': {
+    					c.impulse(rand(-impulse_strength,impulse_strength), rand(impulse_strength/2)) 
+    				}
+    				case 'left': { 
+    					c.impulse(rand(impulse_strength/2), rand(-impulse_strength,impulse_strength)) 
+    				}
+    				case 'right': { 
+    					c.impulse(-rand(impulse_strength/2), rand(-impulse_strength,impulse_strength)) 
+    				}
+    			};
+    		}
+    		
+    	});	
+
+    })
+    
+    rand_x = rand(agent_radius*2, stageW - agent_radius*2)
+    rand_y = rand(agent_radius*2, stageH-agent_radius*2)
+
+   	circle2
+        .center()
+		.pos(rand_x, rand_y)
+		.addPhysics({restitution:1.0, friction:1.0, angular:0.0, linear:2.5})
+
+    circle2.infected = true;
+    circle2.infection_time = 0;
+	infected.addChild(circle2);
+	physics.drag();
+	
+
+	var infection_lifetime = 1000;
+
+	zim.Ticker.add(function(tick_obj) {
+		to_cure = []
+		
+		zim.loop(uninfected, function(uninfected_ind) {
+			uninfected_ind.impulse(rand(-impulse_strength, impulse_strength), rand(-impulse_strength, impulse_strength));
+		});
+		zim.loop(infected, function(infected_ind) {
+			infected_ind.impulse(rand(-impulse_strength, impulse_strength), rand(-impulse_strength, impulse_strength));
+			infected_ind.infection_time += 1;
+
+			if (infected_ind.infection_time > infection_lifetime) to_cure.push(infected_ind);
+		});
+
+		zim.loop(to_cure, function(c) {
+			infected.removeChild(c);
+			uninfected.addChild(c);
+			c.color="white"
+			c.infected = false;
+		});
+	});
+
+
+
+
+    const infection_prop = new Proportion(0,100,0,1);
+    function infection_converter(val) {
+        prob_infect = infection_prop.convert(val);
+    }
+
+    const visc_prop = new Proportion(0, 100, 0, 5);
+    function visc_update(val) {
+        new_visc = visc_prop.convert(val);
+        zim.loop(uninfected, function(uninfected_ind) {
+            uninfected_ind.body.SetLinearDamping(new_visc);
+        });   
+        zim.loop(infected, function(infected_ind) {
+            infected_ind.body.SetLinearDamping(new_visc);
+        });   
+    }
+   
+    var list = {
+        "Controls":{
+            "Infection": [
+                List.slider("Infection Prob", 0, 100, 30, infection_converter),
+                List.slider("Recovery Time", 200, 2000, 1000, function(val) {infection_lifetime = val})
+                ],
+            "Movement":[List.slider("Viscosity", 0, 100, 50, visc_update)]
+        }
+    }
+
+    var pulldown = new List({
+        list: {menu:list, open:false, bloom:true, whither:true},
+        pulldown: true,
+        // titleBar:"PULLDOWN",
+        // titleBarColor:blue,
+        // titleBarBackgroundColor:dark
+    }).siz(220).pos(20,20,false);
+
+
+    var last_tick = 0;
+
+    zim.Ticker.add(function (tick_obj) {
+        var label = Number.parseFloat(tick_obj.time/1000).toPrecision(3);
+        if (label - last_tick > 3){
+            myChart.data.labels.push(label);
+            myChart.data.datasets[0].data.push(uninfected.numChildren);
+            myChart.data.datasets[1].data.push(infected.numChildren);
+            myChart.update();
+            last_tick = label;
+
+            if (myChart.data.labels.length > 70){
+                myChart.data.labels.shift(1);
+                myChart.data.datasets[0].data.shift(1);
+                myChart.data.datasets[1].data.shift(1);
+                myChart.update();
+            }
+        }
+    });
+    
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [0],
+            datasets: [{
+                label: 'Susceptible',
+                backgroundColor: 'white',
+                data: [pop_size-1]
+            }, {
+                label: 'Infected',
+                backgroundColor: 'red',
+                data: [1]
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                yAxes: [{
+                    stacked: true,
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    //myChart.canvas.parentNode.style.height = '300px';
+    //myChart.canvas.parentNode.style.width = '800px';
+
+});
+
+</script>
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+<body>
+    <canvas id="myChart" width=800 height=200></canvas>
+    <section id="sim_holder"></section>
+</body>
+</html>
