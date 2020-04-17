@@ -44,7 +44,7 @@ var render = Render.create({
     options: {
         height: 510,
         width: 600,
-        background: 'rgb(0,0,0,0.7)'
+        background: 'rgba(255,250,250)'
     }
 });
 //render.canvas.height
@@ -113,7 +113,7 @@ for (let i=0; i < residences.length; i++) {
         let this_residence = residences[i];
 
         let loc = this_residence.get_random_position();
-        this_residence.friction = 0.005;
+        this_residence.friction = 0.0;
 
         let c = Bodies.circle(loc.x, loc.y, 2, { plugin:{wrap: this_residence.bounds} });
 
@@ -231,6 +231,8 @@ document.getElementById("pauseRender").addEventListener("click", function(){
     renderer.stable(!renderer.stable());
     renderer.focus();
 });
+
+//What if we remove edges that are older than some threshold?
 
 },{"./location.js":2,"./population.js":129,"matter-collision-events":7,"matter-js":9,"matter-wrap":10,"ngraph.pixel":42}],2:[function(require,module,exports){
 function getRandomArbitrary(min, max) {
