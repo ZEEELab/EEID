@@ -232,7 +232,7 @@ var assemble_class = function(){
 
 setInterval(pulse_orgs, 100, 0.2);
 setInterval(random_visit_residence, 500);
-setInterval(assemble_class, 10000);
+//setInterval(assemble_class, 10000);
 //Matter.Body.applyForce(boxB, boxB.position, {x:0.01, y:0.01});
 
 var mouse = Mouse.create(render.canvas);
@@ -306,11 +306,9 @@ var remove_edges = function() {
         }
     });
 
-    viva_renderer.pause();
     for(let i=0;i<edges_to_remove.length;i++){
         Infection_Graph.removeLink(edges_to_remove[i]);
     }
-    viva_renderer.resume();
 };
 
 for (let i=0; i < 20; i++) {
