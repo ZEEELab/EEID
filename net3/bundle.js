@@ -24,7 +24,7 @@ var Infection_Graph = require('./population.js').Infection_Graph;
 var Location = require('./location.js');
 var Cohort = require('./cohort.js')
 var cur_sim_time = 0;
-var link_lifetime = 10000;
+var link_lifetime = 20000;
 var Viva = require('vivagraphjs')
 
 
@@ -133,7 +133,7 @@ for (let i=0; i < residences.length; i++) {
         let this_residence = residences[i];
 
         let loc = this_residence.get_random_position();
-        this_residence.friction = 0.0;
+        this_residence.friction = 0.005;
 
         let c = Bodies.circle(loc.x, loc.y, 2, { plugin:{wrap: this_residence.bounds} });
 
@@ -230,9 +230,9 @@ var assemble_class = function(){
 
 
 
-setInterval(pulse_orgs, 100, 0.2);
+setInterval(pulse_orgs, 100, 0.1);
 setInterval(random_visit_residence, 500);
-//setInterval(assemble_class, 10000);
+setInterval(assemble_class, 10000);
 //Matter.Body.applyForce(boxB, boxB.position, {x:0.01, y:0.01});
 
 var mouse = Mouse.create(render.canvas);
