@@ -1,0 +1,53 @@
+<html>
+	<head>
+		  <style>
+				#graphDiv {
+				  width: 400;
+				  height: 510; 
+				  overflow: hidden; 
+				  padding: 0;
+				  margin: 0;
+				}
+				#matterDiv {
+				  width: 600;
+				  height: 510; 
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				#histDiv {
+				  width: 300;
+				  height: 200;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				#plotDiv {
+				  width: 300;
+				  height: 200;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				div.row {
+					width: 100%;
+					height: 200;
+				}
+  		</style>
+
+	</head>
+	<body>
+		<div class="row">
+			<div id="histDiv"></div>
+			<div id="plotDiv"></div>
+		</div>
+
+		<div class="row">
+			<div id="matterDiv"></div>
+			<div id="graphDiv"></div>
+			<button id="pauseRender">Pause/Play Layout</button>
+
+		</div>
+		<script src="bundle.js" charset="UTF-8"></script>
+	</body>
+</html>
