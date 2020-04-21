@@ -1,0 +1,118 @@
+<html>
+	<head>
+		  <style>
+				#graphDiv {
+				  width: 400;
+				  height: 510; 
+				  overflow: hidden; 
+				  padding: 0;
+				  margin: 0;
+				  background-color: #d8d8d8;
+				}
+				#matterDiv {
+				  width: 600;
+				  height: 510; 
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				#histDiv {
+				  width: 300;
+				  height: 200;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				#plotDiv {
+				  width: 700;
+				  height: 200;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				div.row {
+					width: 100%;
+					height: 200;
+				}
+		</style>
+
+	</head>
+	<body>
+		<div class="row">
+			<div id="histDiv"></div>
+			<div id="plotDiv"></div>
+		</div>
+
+		<div class="row">
+			<div id="matterDiv"></div>
+			<div id="graphDiv"></div>
+			<button id="pauseRender">Pause/Play Layout</button>
+
+		</div>
+		<script src="bundle.js" charset="UTF-8"></script>
+		<style>
+				.dg.main.taller-than-window .close-button {
+				    border-top: 1px solid #ddd;
+				}
+
+				.dg.main .close-button {
+				    background-color: #ccc;
+				}
+				 
+				.dg.main .close-button:hover {
+				    background-color: #ddd;
+				}
+
+				.dg {
+				    color: #555;
+				    text-shadow: none !important;
+				}
+
+				.dg.main::-webkit-scrollbar {
+				    background: #fafafa;
+				}
+
+				.dg.main::-webkit-scrollbar-thumb {
+				    background: #bbb;
+				}
+				 
+				.dg li:not(.folder) {
+				    background: #fafafa;
+				    border-bottom: 1px solid #ddd;
+				}
+				 
+				.dg li.save-row .button {
+				    text-shadow: none !important;
+				}
+
+				.dg li.title {
+				    background: #e8e8e8;
+				}
+
+				.dg .cr.function:hover,.dg .cr.boolean:hover {
+				    background: #fffff;
+				}
+				 
+				.dg .c input[type=text] {
+				    background: #e9e9e9;
+				}
+				 
+				.dg .c input[type=text]:hover {
+				    background: #eee;
+				}
+				 
+				.dg .c input[type=text]:focus {
+				    background: #eee;
+				    color: #555;
+				}
+				 
+				.dg .c .slider {
+				    background: #e9e9e9;
+				}
+
+				.dg .c .slider:hover {
+				    background: #eee;
+				}
+  		</style>
+	</body>
+</html>
