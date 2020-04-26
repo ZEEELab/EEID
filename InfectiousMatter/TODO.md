@@ -1,1 +1,2 @@
-infect org as button, actually put the right callback in it so it gets to recover 
+- Add congregation locations -- e.g., grocery stores, classrooms
+- Add hospital/quarantine location
