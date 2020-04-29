@@ -45,7 +45,7 @@
 	<body>
 	<div class="uk-flex"> 
 
-		<div class="uk-width-4-5 uk-flex-left uk-padding-small">
+		<div class="uk-width-5-6 uk-flex-left uk-padding-small">
 			<div style="height: 100vh;">
 
 				<article class="uk-article">
@@ -79,7 +79,7 @@
 			<div id="simContainer" uk-sticky="offset: 0" class="uk-align-center uk-width-1-1" style="background: rgba(255, 255, 255, 0.95); z-index: 100" >
 				<div class="uk-align-center" style="height:300; width:900;" >
 					<div class="" id="plotDiv"></div>
-					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true" id="matterDiv"></div>
+					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true;" id="matterDiv"></div>
 					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true" id="graphDiv"></div>
 
 				</div>
@@ -92,7 +92,7 @@
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Simple Agents in a Simple World</a></h1>
 
-				    <p class="uk-text-lead" id="page2" uk-scrollspy="repeat: true; offset-top: 0;">Each circle is an "Agent"</p>
+				    <p class="uk-text-lead" id="page2" uk-scrollspy="repeat: true; offset-top: 500;">Each circle is an "Agent"</p>
 
 				    <p>
 				    	An agent is just another word for an "individual" in the simulation. In this world, agents are drawn as circles and move around in their world randomly. If they wander too far in one direction, they loop back around on the other end of the world. 
@@ -109,7 +109,7 @@
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Infection</a></h1>
 
-				    <p class="uk-text-lead" id="page3" uk-scrollspy="repeat: true;">We can expose a few organisms in this population</p>
+				    <p class="uk-text-lead" id="page3" uk-scrollspy="repeat: true; offset-top: -200">We can expose a few organisms in this population</p>
 
 				    <p>
 				    	First you'll see agents with a small orange border. Those are <b>Exposed</b> individuals, after some time they'll become <b>Infected</b> and turn red. The Infected agents are contageous, and if they bump into <b>Susceptible</b> (black border) agents, there is a chance they'll transmit the disease. Eventually, Infected organisms will recover and develop resistance to the disease. You'll see these <b>Recovered</b> agents with a green border in the simulation. If you didn't already guess, that makes this an Agent Based version of a traditional <b>Suceptible, Exposed, Infectious, Recovered</b> (SEIR) model.
@@ -148,9 +148,6 @@
 				    <p>
 				    	The outcome of this simulation is random, so maybe you witnessed one of the lucky scenarios where the disease spread only in one or two subpopulations. Maybe the disease spread slowly through each subpopulation, and you saw a prolonged (but flat) infected curve. Or maybe you saw multiple epidemic peaks as the disease spread beyond a single subpopulation. 
 				    </p>
-				    <p>
-				    	If you weren't impressed, try hitting refresh in your browser to give it another go! 
-				    </p>
 
 				</article>
 			</div>
@@ -165,17 +162,42 @@
 				    <p>
 				    	One of the really neat features of agent based models is that we can keep track of information about each individual in the simulation. This lets us track, for example, who interacted with eachother over some period of time. As you might imagine for disease transmission, this could be an increadibly useful bit of information. 
 				    </p>
+
+				</article>
+		
+   			</div>
+
+   			<div style="height: 100vh;" >
+				<article class="uk-article">
+
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">City and Countryside</a></h1>
+
+				    <p class="uk-text-lead" id="page7" uk-scrollspy="repeat: true; offset-top: -200">Dense cities and more isolated rural areas are connected, and change the dynamics of disease spread</p>
+
+				    <p>
+				    	As an example, lets make a metapopulation where there is one dense subpopulation, like a city, and a few less dense locations surrounding it. You can easily see the effect of density on the contact graph, where the large city is a tight-knit network, and the lower density locations have more tendrils. 
+				    </p>
+
+				    <p>
+				    	Try running this a few times to see the range of possible outcomes!
+				    </p>
+
+					<button id="restart_btn" class="uk-button uk-button-secondary" href="">
+						Restart Simulation
+					</button> 
+
                     <p class="uk-text-lead">There are even more configuration options in the full simulator! (Keep Scrolling)</p>
 
 				</article>
 		
    			</div>
+
    			<a class="uk-button uk-button-primary uk-button-large uk-align-center" href="https://zeeelab.github.io/EEID/metapop2/"> 
 					Launch Full Simulator 
 			</a>	
 		</div>
 		
-		<div class="uk-flex uk-width-1-5 uk-flex-column uk-margin-xlarge-top">
+		<div class="uk-flex uk-width-1-6 uk-flex-column uk-margin-xlarge-top">
 		    <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset:500" uk-sticky="offset: 50">
 	    		<li><a href="#page1">Introduction</a></li>
 	    		<li><a href="#page2">Simple Agents</a></li>
@@ -183,6 +205,7 @@
 	    		<li><a href="#page4">Plots</a></li>
 	    		<li><a href="#page5">Metapopulations</a></li>
 	    		<li><a href="#page6">Contact Graphs</a></li>
+	    		<li><a href="#page7">Example: Cities and Countryside</a></li>
 
 
 			</ul>
