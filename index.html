@@ -1,251 +1,196 @@
-<!doctype html>
 <html>
-<head>
-<meta charset="utf-8" />
-<title>ZE3 Lab - Simple SIS Agent Sim</title>
-<script src="assets/js/createjs_min.js"></script>
-<script src="assets/js/zim.js"></script>
+	<head>
+		  <style>
+				#graphDiv {
+				  width: 300;
+				  height: 300; 
+				  overflow: hidden; 
+				  padding: 0;
+				  margin: 0;
+				  background-color: #d8d8d8;
+				  visibility: hidden;
+				}
+				#matterDiv {
+				  width: 300;
+				  height: 300; 
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				#histDiv {
+				  width: 300;
+				  height: 200;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				#plotDiv {
+				  width: 300;
+				  height: 300;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				div.row {
+					width: 98vw;
+					height: 400;
+				}
+				div.simSpacer {
+					height: 400;
+					width:100%;
+				}
+		</style>
+		<link rel="stylesheet" href="assets/css/uikit.min.css">
+	</head>
+	<body>
+	<div class="uk-flex"> 
 
-<script src="assets/js/Box2dWeb-2.1.a.3.min.js"></script>
-<script src="assets/js/physics_2.0.js"></script><!-- helper code for box2D -->
-<script src="assets/js/Chart.min.js"></script>
+		<div class="uk-width-4-5 uk-flex-left uk-padding-small">
+			<div style="height: 100vh;" id="page1" id="page1" uk-scrollspy="repeat: true">
 
-<script>
-// https://zimjs.com - JavaScript Canvas Framework - Code Creativity!
-var circle2 = new Circle(3, 'red')
+				<article class="uk-article">
 
-var frame = new Frame("sim_holder", 800, 600, dark, light);
-frame.on("ready", () => {
-    var stage = frame.stage;
-    var stageW = frame.width;
-    var stageH = frame.height;
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Infectious Matter</a></h1>
 
-    var prob_infect = 0.3;
+				    <p class="uk-text-lead">
+				    	Watch a virtual epidemic unfold in your web browser 
+				    </p>
 
-    var borders = {x:3, y:3, width:stageW-10, height:stageH-10}
-    var physics = new zim.Physics(gravity = 0, borders=borders, frame=frame);
+				    <p>
+				    	I'm an Assistant Professor at the University of Michigan in the Ecology and Evolutionary Biology department, and the Center for the Study of Complex Systems. I study how coevolution between hosts and their pathogens drive really fascinating ecological and evolutionary dynamics. In the Fall, I'll be teaching a new course on the Ecology and Evolution of Infectious Disease. 
+				    </p>
+				    <p>
+				    	I've always believed that hands-on learning is the best way to build intuition about complex topics, and that's something I'm planning to bring to my coruse in the fall. I'm also a big fan of simulations. That's true for the classes I teach, as well as in my own research. 
 
-    var agent_radius = 3;
-    var impulse_strength = 0.005
+				    </p>
+				    <p>
+				    	There are a lot of great resources for scientists interested in studying disease dynamics, and several good simulation frameworks that are geared towards teaching broadly about disease transmission. I was also looking for something that would run in web browsers, so that students could get right into experimenting without having the universally loathed class period dedicated to installing software. Unfortunately, I didn't find a simulation with the right mix of simplicity (to get rid of so many of the complicated bits) and flexability (to add in the bits that might be important) for this course.
+				    </p>
+				    <p>
+				    	So, I built it. Keep scrolling to learn more about it. 
+				    </p><br/>
+				    <p>
+				    	<span class="uk-label uk-label-warning">warning</span>  I am not an Eppidemiologist or Public Health expert. This is not designed to be a predictive simulation of COVID-19. It is a simple model to understand basic disease dynamics. Trust the <b>real</b> experts. 
+				    </p>
 
-    STYLE = {
-        size: 22,
-    };
+				</article>
+			</div>
+			
+			<div id="simContainer" uk-sticky="offset: 0" class="uk-align-center uk-width-1-1" style="background: rgba(255, 255, 255, 0.95); z-index: 100" >
+				<div class="uk-align-center" style="height:300; width:900;" >
+					<div class="" id="plotDiv"></div>
+					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true" id="matterDiv"></div>
+					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true" id="graphDiv"></div>
 
-    var pop_size = 600;
+				</div>
+			</div>
 
-    var uninfected = new zim.Container();
-    stage.addChild(uninfected);
+			<div style="height: 100vh;" id="page2" uk-scrollspy="repeat: true; offset-top: 0;">
 
-    var infected = new zim.Container();
-    stage.addChild(infected);
+				<article class="uk-article">
+				<div ></div>
 
-    zim.loop(pop_size, function(i) {
-    	rand_x = rand(agent_radius*2, stageW - agent_radius*2)
-    	rand_y = rand(agent_radius*2, stageH-agent_radius*2)
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Simple Agents in a Simple World</a></h1>
 
-    	var c = new Circle(agent_radius, 'white')
-    		.center()
-    		.pos(rand_x, rand_y)
-    		.addPhysics({restitution:1.0, friction:1.0, angular:0.0, linear:1})
+				    <p class="uk-text-lead">Each circle is an "Agent"</p>
 
-    	//physics.addMap(c_body, c);
-    	uninfected.addChild(c);
-    	c.infected = false;
+				    <p>
+				    	An agent is just another word for an "individual" in the simulation. In this world, agents are drawn as circles and move around in their world randomly. If they wander too far in one direction, they loop back around on the other end of the world. 
+				    </p>
+				    <p> 
+				    	Sometimes the agents bump into eachother. It might help to imagine that represents seeing someone in an elevator, visiting a friend, or actually physically bumping into someone. In any case, we'll call these events <b> contacts</b>.
+				    </p>
 
-        c.addEventListener("click", function(e) {
-            if (c.infected) {
-                c.infected = false;
-                c.color="white";
-                infected.removeChild(c);
-                uninfected.addChild(c);
-            }
-            else {
-                c.infected = true;
-                c.color = "red";
-                uninfected.removeChild(c);
-                infected.addChild(c);
-                c.infected_by = "User";
-            }
+				</article>
+			</div>
 
-        })
+			<div style="height: 100vh;" id="page3" uk-scrollspy="repeat: true; offset-top: -200;">
+				<article class="uk-article">
 
-    	c.contact(function (obj, body) {
-    		//if we should become infected...
-    		if (!c.infected && obj.infected && Math.random() < prob_infect) {
-    			//infect new org...
-    			uninfected.removeChild(c);
-    			infected.addChild(c);
-    			c.infected = true;
-    			c.color="red";
-    			c.infected_by = obj;
-    			c.infection_time = 0;
-    		}
-    		if (c.infected && obj.infected == false && Math.random() < prob_infect) {
-    			uninfected.removeChild(obj);
-    			infected.addChild(obj);
-    			obj.infected = true;
-    			obj.color="red";
-    			obj.infected_by = c;
-    			obj.infection_time = 0;
-    		}
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Infection</a></h1>
 
-    		//lets try to stay off the walls.
-    		if (obj.type == "Border") {
-    			switch(obj.side) {
-    				case 'top': { 
-    					c.impulse(rand(-impulse_strength,impulse_strength), -rand(impulse_strength/2))
-    				}
-    				case 'bottom': {
-    					c.impulse(rand(-impulse_strength,impulse_strength), rand(impulse_strength/2)) 
-    				}
-    				case 'left': { 
-    					c.impulse(rand(impulse_strength/2), rand(-impulse_strength,impulse_strength)) 
-    				}
-    				case 'right': { 
-    					c.impulse(-rand(impulse_strength/2), rand(-impulse_strength,impulse_strength)) 
-    				}
-    			};
-    		}
-    		
-    	});	
+				    <p class="uk-text-lead">We can expose a few organisms in this population</p>
 
-    })
-    
-    rand_x = rand(agent_radius*2, stageW - agent_radius*2)
-    rand_y = rand(agent_radius*2, stageH-agent_radius*2)
+				    <p>
+				    	First you'll see agents with a small orange border. Those are <b>Exposed</b> individuals, after some time they'll become <b>Infected</b> and turn red. The Infected agents are contageous, and if they bump into <b>Susceptible</b> (black border) agents, there is a chance they'll transmit the disease. Eventually, Infected organisms will recover and develop resistance to the disease. You'll see these <b>Recovered</b> agents with a green border in the simulation. If you didn't already guess, that makes this an Agent Based version of a traditional <b>Suceptible, Exposed, Infectious, Recovered</b> (SEIR) model.
+				    </p>
+				    	Now, it's a little hard to see all the different colored borders on the agents, so lets start plotting what's going on in the population.
+				    <p>
+				    	Scroll on to see the plot!
+				    </p>
 
-   	circle2
-        .center()
-		.pos(rand_x, rand_y)
-		.addPhysics({restitution:1.0, friction:1.0, angular:0.0, linear:1})
+				</article>
+			</div>
 
-    circle2.infected = true;
-    circle2.infection_time = 0;
-	infected.addChild(circle2);
-	physics.drag();
-	
 
-	var infection_lifetime = 1000;
+			<div style="height: 100vh;" id="page4" uk-scrollspy="repeat: true; offset-top: -200">
+				<article class="uk-article">
 
-	zim.Ticker.add(function(tick_obj) {
-		to_cure = []
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Plotting</a></h1>
+
+				    <p class="uk-text-lead">Mouse over the plot to see the labels</p>
+
+				    <p>Now that we have a plot, we also can see the timescale of the simulation. We could make the agents move faster or slower, depending on how much "physical distancing" we're trying to model. We could also increase or decrease the population size to simulate differences in location density.</p>
+
+				</article>
+			</div>
+
+			<div style="height: 100vh;" id="page5" uk-scrollspy="repeat: true; offset-top: -200">
+				<article class="uk-article">
+
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Multiple Subpopulations</a></h1>
+
+				    <p class="uk-text-lead">We don't all live in one little box!</p>
+
+				    <p>
+				    	We, like most other organisms on earth, don't live in one big popualation, but are instead spread across space in different cities or towns, and live in different neighborhoods or complexes. We model these sorts of things as a <b>Metapopulation</b>, where several subpopulations are connected through migration of individuals. 
+				    </p>
+				    <p>
+				    	The outcome of this simulation is random, so maybe you witnessed one of the lucky scenarios where the disease spread only in one or two subpopulations. Maybe the disease spread slowly through each subpopulation, and you saw a prolonged (but flat) infected curve. Or maybe you saw multiple epidemic peaks as the disease spread beyond a single subpopulation. 
+				    </p>
+				    <p>
+				    	If you weren't impressed, try hitting refresh in your browser to give it another go! 
+				    </p>
+
+				</article>
+			</div>
+
+			<div style="height: 100vh;" id="page6" uk-scrollspy="repeat: true; offset-top: -200">
+				<article class="uk-article">
+
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Contact Graph</a></h1>
+
+				    <p class="uk-text-lead">(The 7 Degrees of Disease Transmission)</p>
+
+				    <p>
+				    	One of the really neat features of agent based models is that we can keep track of information about each individual in the simulation. This lets us track, for example, who interacted with eachother over some period of time. As you might imagine for disease transmission, this could be an increadibly useful bit of information. 
+				    </p>
+                    <p class="uk-text-lead">There are even more configuration options in the full simulator! (Keep Scrolling)</p>
+
+				</article>
 		
-		zim.loop(uninfected, function(uninfected_ind) {
-			uninfected_ind.impulse(rand(-impulse_strength, impulse_strength), rand(-impulse_strength, impulse_strength));
-		});
-		zim.loop(infected, function(infected_ind) {
-			infected_ind.impulse(rand(-impulse_strength, impulse_strength), rand(-impulse_strength, impulse_strength));
-			infected_ind.infection_time += 1;
-
-			if (infected_ind.infection_time > infection_lifetime) to_cure.push(infected_ind);
-		});
-
-		zim.loop(to_cure, function(c) {
-			infected.removeChild(c);
-			uninfected.addChild(c);
-			c.color="white"
-			c.infected = false;
-		});
-	});
+   			</div>
+   			<a class="uk-button uk-button-primary uk-button-large" href="https://zeeelab.github.io/EEID/metapop2/"> 
+					Launch Full Simulator 
+			</a>	
+		</div>
+		
+		<div class="uk-flex uk-width-1-5 uk-flex-column uk-margin-xlarge-top">
+		    <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset:400" uk-sticky="offset: 50">
+	    		<li><a href="#page1">Introduction</a></li>
+	    		<li><a href="#page2">Simple Agents</a></li>
+	    		<li><a href="#page3">Infections</a></li>
+	    		<li><a href="#page4">Plots</a></li>
+	    		<li><a href="#page5">Metapopulations</a></li>
+	    		<li><a href="#page6">Contact Graphs</a></li>
 
 
+			</ul>
+
+		</div>
 
 
-    const infection_prop = new Proportion(0,100,0,1);
-    function infection_converter(val) {
-        prob_infect = infection_prop.convert(val);
-    }
-
-    const visc_prop = new Proportion(0, 100, 0, 5);
-    function visc_update(val) {
-        new_visc = visc_prop.convert(val);
-        zim.loop(uninfected, function(uninfected_ind) {
-            uninfected_ind.body.SetLinearDamping(new_visc);
-        });   
-        zim.loop(infected, function(infected_ind) {
-            infected_ind.body.SetLinearDamping(new_visc);
-        });   
-    }
-   
-    var list = {
-        "Controls":{
-            "Infection": [
-                List.slider("Infection Prob", 0, 100, 30, infection_converter),
-                List.slider("Recovery Time", 200, 2000, 1000, function(val) {infection_lifetime = val})
-                ],
-            "Movement":[List.slider("Viscosity", 0, 100, 20, visc_update)]
-        }
-    }
-
-    var pulldown = new List({
-        list: {menu:list, open:false, bloom:true, whither:true},
-        pulldown: true,
-        // titleBar:"PULLDOWN",
-        // titleBarColor:blue,
-        // titleBarBackgroundColor:dark
-    }).siz(220).pos(20,20,false);
-
-
-    var last_tick = 0;
-
-    zim.Ticker.add(function (tick_obj) {
-        var label = Number.parseFloat(tick_obj.time/1000).toPrecision(3);
-        if (label - last_tick > 3){
-            myChart.data.labels.push(label);
-            myChart.data.datasets[0].data.push(uninfected.numChildren);
-            myChart.data.datasets[1].data.push(infected.numChildren);
-            myChart.update();
-            last_tick = label;
-
-            if (myChart.data.labels.length > 70){
-                myChart.data.labels.shift(1);
-                myChart.data.datasets[0].data.shift(1);
-                myChart.data.datasets[1].data.shift(1);
-                myChart.update();
-            }
-        }
-    });
-    
-
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: [0],
-            datasets: [{
-                label: 'Susceptible',
-                backgroundColor: 'white',
-                data: [pop_size-1]
-            }, {
-                label: 'Infected',
-                backgroundColor: 'red',
-                data: [1]
-            }]
-        },
-        options: {
-            responsive: false,
-            scales: {
-                yAxes: [{
-                    stacked: true,
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-
-    //myChart.canvas.parentNode.style.height = '300px';
-    //myChart.canvas.parentNode.style.width = '800px';
-
-});
-
-</script>
-<meta name="viewport" content="width=device-width, user-scalable=no" />
-</head>
-<body>
-    <canvas id="myChart" width=800 height=200></canvas>
-    <section id="sim_holder"></section>
-</body>
+	</div>
+	<script src="bundle.js" charset="UTF-8"></script>
+	</body>
 </html>
