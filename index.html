@@ -60,17 +60,17 @@
 				    	I'm an Assistant Professor at the University of Michigan in the Ecology and Evolutionary Biology department, and the Center for the Study of Complex Systems. I study how coevolution between hosts and their pathogens drive really fascinating ecological and evolutionary dynamics. In the Fall, I'll be teaching a new course on the Ecology and Evolution of Infectious Disease. 
 				    </p>
 				    <p>
-				    	I've always believed that hands-on learning is the best way to build intuition about complex topics, and that's something I'm planning to bring to my coruse in the fall. I'm also a big fan of simulations. That's true for the classes I teach, as well as in my own research. 
+				    	I've always believed that hands-on learning is the best way to build intuition about complex topics, and that's something I'm planning to bring to my course in the fall. I'm also a big fan of simulations. That's true for the classes I teach, as well as in my own research. 
 
 				    </p>
 				    <p>
-				    	There are a lot of great resources for scientists interested in studying disease dynamics, and several good simulation frameworks that are geared towards teaching broadly about disease transmission. I was also looking for something that would run in web browsers, so that students could get right into experimenting without having the universally loathed class period dedicated to installing software. Unfortunately, I didn't find a simulation with the right mix of simplicity (to get rid of so many of the complicated bits) and flexability (to add in the bits that might be important) for this course.
+				    	There are a lot of great resources for scientists interested in studying disease dynamics, and several good simulation frameworks that are geared towards teaching broadly about disease transmission. I was also looking for something that would run in web browsers, so that students could get right into experimenting without having the universally loathed class period dedicated to installing software. Unfortunately, I didn't find a simulation with the right mix of simplicity (to get rid of so many of the complicated bits) and flexibility (to add in the bits that might be important) for this course.
 				    </p>
 				    <p>
 				    	So, I built it. Keep scrolling to learn more about it. 
 				    </p><br/>
 				    <p>
-				    	<span class="uk-label uk-label-warning">warning</span>  I am not an Eppidemiologist or Public Health expert. This is not designed to be a predictive simulation of COVID-19. It is a simple model to understand basic disease dynamics. Trust the <b>real</b> experts. 
+				    	<span class="uk-label uk-label-warning">warning</span>  I am not an Epidemiologist or Public Health expert. This is not designed to be a predictive simulation of COVID-19. It is a simple model to understand basic disease dynamics. Trust the <b>real</b> experts. 
 				    </p>
 
 				</article>
@@ -98,7 +98,7 @@
 				    	An agent is just another word for an "individual" in the simulation. In this world, agents are drawn as circles and move around in their world randomly. If they wander too far in one direction, they loop back around on the other end of the world. 
 				    </p>
 				    <p> 
-				    	Sometimes the agents bump into eachother. It might help to imagine that represents seeing someone in an elevator, visiting a friend, or actually physically bumping into someone. In any case, we'll call these events <b> contacts</b>.
+				    	Sometimes the agents bump into each other. It might help to imagine that represents seeing someone in an elevator, visiting a friend, or actually physically bumping into someone. In any case, we'll call these events <b> contacts</b>.
 				    </p>
 
 				</article>
@@ -112,7 +112,7 @@
 				    <p class="uk-text-lead" id="page3" uk-scrollspy="repeat: true; offset-top: -200">We can expose a few organisms in this population</p>
 
 				    <p>
-				    	First you'll see agents with a small orange border. Those are <b>Exposed</b> individuals, after some time they'll become <b>Infected</b> and turn red. The Infected agents are contageous, and if they bump into <b>Susceptible</b> (black border) agents, there is a chance they'll transmit the disease. Eventually, Infected organisms will recover and develop resistance to the disease. You'll see these <b>Recovered</b> agents with a green border in the simulation. If you didn't already guess, that makes this an Agent Based version of a traditional <b>Suceptible, Exposed, Infectious, Recovered</b> (SEIR) model.
+				    	First you'll see agents with a small orange border. Those are <b>Exposed</b> individuals, after some time they'll become <b>Infected</b> and turn red. The Infected agents are contagious, and if they bump into <b>Susceptible</b> (black border) agents, there is a chance they'll transmit the disease. Eventually, Infected organisms will recover and develop resistance to the disease. You'll see these <b>Recovered</b> agents with a green border in the simulation. If you didn't already guess, that makes this an Agent Based version of a traditional <b>Susceptible, Exposed, Infectious, Recovered</b> (SEIR) model.
 				    </p>
 				    	Now, it's a little hard to see all the different colored borders on the agents, so lets start plotting what's going on in the population.
 				    <p>
@@ -143,7 +143,7 @@
 				    <p class="uk-text-lead" id="page5" uk-scrollspy="repeat: true; offset-top: -200">We don't all live in one little box!</p>
 
 				    <p>
-				    	We, like most other organisms on earth, don't live in one big popualation, but are instead spread across space in different cities or towns, and live in different neighborhoods or complexes. We model these sorts of things as a <b>Metapopulation</b>, where several subpopulations are connected through migration of individuals. 
+				    	We, like most other organisms on earth, don't live in one big population, but are instead spread across space in different cities or towns, and live in different neighborhoods or complexes. We model these sorts of things as a <b>Metapopulation</b>, where several subpopulations are connected through migration of individuals. 
 				    </p>
 				    <p>
 				    	The outcome of this simulation is random, so maybe you witnessed one of the lucky scenarios where the disease spread only in one or two subpopulations. Maybe the disease spread slowly through each subpopulation, and you saw a prolonged (but flat) infected curve. Or maybe you saw multiple epidemic peaks as the disease spread beyond a single subpopulation. 
@@ -160,7 +160,7 @@
 				    <p class="uk-text-lead" id="page6" uk-scrollspy="repeat: true; offset-top: -200">(The 7 Degrees of Disease Transmission)</p>
 
 				    <p>
-				    	One of the really neat features of agent based models is that we can keep track of information about each individual in the simulation. This lets us track, for example, who interacted with eachother over some period of time. As you might imagine for disease transmission, this could be an increadibly useful bit of information. 
+				    	One of the really neat features of agent based models is that we can keep track of information about each individual in the simulation. This lets us track, for example, who interacted with each other over some period of time. As you might imagine for disease transmission, this could be an incredibly useful bit of information. 
 				    </p>
 
 				</article>
