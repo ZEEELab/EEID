@@ -43,37 +43,72 @@
 		<link rel="stylesheet" href="assets/css/uikit.min.css">
 	</head>
 	<body>
-	<div class="uk-flex"> 
+
+	<div class="uk-flex uk-container"> 
 
 		<div class="uk-width-5-6 uk-flex-left uk-padding-small">
 			<div style="height: 100vh;">
 
 				<article class="uk-article">
 
-				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Infectious Matter</a></h1>
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">
+				    	Developing an Intuition for Pandemics
+
+				    </a></h1>
 
 				    <p class="uk-text-lead"  id="page1" uk-scrollspy="repeat: true">
-				    	Watch a virtual epidemic unfold in your web browser 
-				    </p>
-
-				    <p>
-				    	I'm an Assistant Professor at the University of Michigan in the Ecology and Evolutionary Biology department, and the Center for the Study of Complex Systems. I study how coevolution between hosts and their pathogens drive really fascinating ecological and evolutionary dynamics. In the Fall, I'll be teaching a new course on the Ecology and Evolution of Infectious Disease. 
-				    </p>
-				    <p>
-				    	I've always believed that hands-on learning is the best way to build intuition about complex topics, and that's something I'm planning to bring to my course in the fall. I'm also a big fan of simulations. That's true for the classes I teach, as well as in my own research. 
 
 				    </p>
 				    <p>
-				    	There are a lot of great resources for scientists interested in studying disease dynamics, and several good simulation frameworks that are geared towards teaching broadly about disease transmission. I spent some time looking for something that would run in web browsers, so that students could get right into experimenting without having the universally loathed class period dedicated to installing software. Unfortunately, I didn't find a simulation with the right mix of simplicity (to get rid of so many of the complicated bits) and flexibility (to add in the bits that might be important) for this course.
+				    	When you hear an emergency traffic report, you have an idea of how that news is going to affect your plans (when we still had plans, anyway). We have an intuition for the way traffic works and fits in with our daily routines, but we didn't get that intuition from just listening to traffic reports. Actually sitting in our car bumper-to-bumper taught us to plan ahead for road closures and generally when to avoid the highway. 
 				    </p>
+
 				    <p>
-				    	So, I built it. Keep scrolling to learn more about it. 
-				    </p><br/>
+				    	We don't have that intuition for pandemics yet, but we do have a lot of pandemic reports.
+				    </p>
+
 				    <p>
+				    	What if you could watch virtual epidemics unfold directly in your web browser to build that intuition rather than waiting around and learning by making mistakes and dealing with their fallout? Imagine if new pandemic plans and policies came with an interactive simulation that demonstrated (at least virtually) their intended consequences.
+				    </p>
+
+				    <p>
+						<div class="uk-cover-container uk-box-shadow-medium" uk-scrollspy="cls: uk-animation-fade; repeat: true;">
+							<img src="assets/img/teaser.png">
+						</div>
+				    </p>
+
+				    <p class="uk-align-bottom">
 				    	<span class="uk-label uk-label-warning">disclaimer</span>  I am not an Epidemiologist or Public Health expert. This is not designed to be a predictive simulation of COVID-19. It is a simple model to understand and visualize basic disease dynamics. 
 				    </p>
 
+				    <br/><br/>
 				</article>
+			</div>
+
+			<div class="uk-container" style="height: 100vh;">
+
+			    <p class="uk-text-lead">Why I Made This</p>
+			    <div class="">
+			    	<figure>
+						<img class="uk-box-shadow-large uk-align-left uk-height-large" src="assets/img/LZ_greenhouse.png" uk-scrollspy="cls: uk-animation-slide-left; repeat: true; offset-top: -200" uk-img>
+					</figure>
+				</div>
+
+				<div class="">
+				    <p>
+			    		<a class="uk-link-muted" href="https://zeeelab.com/">I'm an Assistant Professor at the University of Michigan</a> in the Ecology and Evolutionary Biology department, and the Center for the Study of Complex Systems. I study how coevolution between hosts and their pathogens drive really fascinating ecological and evolutionary dynamics. In the Fall, I'll be teaching a new course on the Ecology and Evolution of Infectious Disease. 
+			    	</p>
+			    	<p>
+			    		I've always believed that hands-on learning is the best way to build intuition about complex topics, and that's something I'm planning to bring to my course in the fall. I'm also a big fan of simulations. That's true for the classes I teach, as well as in my own research. 
+			    	</p>
+
+			    	<p>
+			    		There are a lot of great resources for scientists interested in studying disease dynamics, and several good simulation frameworks that are geared towards teaching broadly about disease transmission. I spent some time looking for something that would run in web browsers, so that students could get right into experimenting without having the universally loathed class period dedicated to installing software. Unfortunately, I didn't find a simulation with the right mix of simplicity (to get rid of so many of the complicated bits) and flexibility (to add in the bits that might be important) for this course.
+			    	</p>
+			    	<p>
+			    		So, I built it. Keep scrolling to learn more about it. 
+			    	</p><br/>
+		    	</div>
 			</div>
 			
 			<div id="simContainer" uk-sticky="offset: 0" class="uk-align-center uk-width-1-1" style="background: rgba(255, 255, 255, 0.95); z-index: 100" >
@@ -199,14 +234,14 @@
                     <p class="uk-text-lead">There are even more configuration options in the full simulator! (Keep Scrolling)</p>
 
 				</article>
-		
-   			</div>
+			</div>
+
 
    			<a class="uk-button uk-button-primary uk-button-large uk-align-center" href="https://zeeelab.github.io/EEID/metapop2/"> 
 					Launch Full Simulator 
 			</a>	
 		</div>
-		
+
 		<div class="uk-flex uk-width-1-6 uk-flex-column uk-margin-xlarge-top">
 		    <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset:500" uk-sticky="offset: 50">
 	    		<li><a href="#page1">Introduction</a></li>
