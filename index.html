@@ -70,7 +70,7 @@
 				    	So, I built it. Keep scrolling to learn more about it. 
 				    </p><br/>
 				    <p>
-				    	<span class="uk-label uk-label-warning">Disclaimer</span>  I am not an Epidemiologist or Public Health expert. This is not designed to be a predictive simulation of COVID-19. It is a simple model to understand basic disease dynamics. Trust the <b>real</b> experts. 
+				    	<span class="uk-label uk-label-warning">disclaimer</span>  I am not an Epidemiologist or Public Health expert. This is not designed to be a predictive simulation of COVID-19. It is a simple model to understand basic disease dynamics. Trust the <b>real</b> experts. 
 				    </p>
 
 				</article>
@@ -98,7 +98,7 @@
 				    	An agent is just another word for an "individual" in the simulation. In this world, agents are drawn as circles and move around in their world randomly. If they wander too far in one direction, they loop back around on the other end of the world. 
 				    </p>
 				    <p> 
-				    	Sometimes the agents bump into each other. It might help to imagine that represents seeing someone in an elevator, visiting a friend, or actually physically bumping into someone. In any case, we'll call these events <b> Contacts</b>.
+				    	Sometimes the agents bump into each other. It might help to imagine that represents seeing someone in an elevator, visiting a friend, or actually physically bumping into someone. In any case, we'll call these events <b>Contacts</b>.
 				    </p>
 
 				</article>
@@ -130,7 +130,9 @@
 
 				    <p class="uk-text-lead" id="page4" uk-scrollspy="repeat: true; offset-top: -200">Mouse over the plot to see the labels</p>
 
-				    <p>Now that we have a plot, we also can see the timescale of the simulation. We could make the agents move faster or slower, depending on how much "physical distancing" we're trying to model. We could also increase or decrease the population size to simulate differences in location density. You'll get to play with these parameters in the full simulation later!</p>
+				    <p>
+				    	Now that we have a plot, we also can see the timescale of the simulation. We could make the agents move faster or slower, depending on how much "physical distancing" we're trying to model. We could also increase or decrease the population size to simulate differences in location density. You'll get to play with these parameters in the full simulation later!
+					</p>
 
 				</article>
 			</div>
@@ -143,10 +145,10 @@
 				    <p class="uk-text-lead" id="page5" uk-scrollspy="repeat: true; offset-top: -200">We don't all live in one little box!</p>
 
 				    <p>
-				    	We, like most other organisms on earth, don't live in one big population, but are instead spread across space in different cities or towns, and live in different neighborhoods or apartment complexes. We model these sorts of things as a <b>Metapopulation</b>, where several subpopulations are connected by migration. 
+				    	We, like most other organisms on earth, don't live in one big population, but are instead spread across space in different cities or towns, and live in different neighborhoods or complexes. We model these sorts of things as a <b>Metapopulation</b>, where several subpopulations are connected through <b>Migration</b> of individuals. Migration in this abstract sense could represent visiting your friend in a neighboring city, for example. 
 				    </p>
 				    <p>
-				    	The outcome of this simulation is stochastic, which means every time you run it you might see something different. Maybe the disease spread slowly through each subpopulation, and you saw a prolonged (but flat) infected curve. Or maybe you saw multiple infection peaks as the disease spread quickly in multiple subpopulations at different times. When we are modeling disease dynamics, it's important to get a sense of the range of possible outcomes and how likely they are. 
+				    	The outcome of this simulation is <b>Stochastic</b>, which means every time you run it you might see something different. Maybe the disease spread slowly through each subpopulation, and you saw a prolonged (but flat) infected curve. Or maybe you saw multiple infection peaks as the disease spread quickly in multiple subpopulations at different times. When we are modeling disease dynamics, it's important to get a sense of the range of possible outcomes and how likely they are. 
 				    </p>
 
 				</article>
@@ -175,7 +177,15 @@
 				    <p class="uk-text-lead" id="page7" uk-scrollspy="repeat: true; offset-top: -200">Dense cities and more isolated rural areas are connected, and change the dynamics of disease spread</p>
 
 				    <p>
-				    	As an example, lets make a metapopulation where there is one dense subpopulation (purple), like a major city, and a few less dense locations surrounding it. You can easily see the effect of density on the contact graph, where the large city is a tight-knit network, and the lower density locations have more tendrils. 
+				    	As an example, lets make a metapopulation simulation of a metropolitan area. In a typical metropolitan area, there is a densely populated city surrounded by lower density towns and rural areas. Here, the dense city is in the top left (purple) and the density decreases as we move down and to the right.  
+				    </p>
+
+				    <p>
+				    	You can easily see the effect of density on the contact graph, where the large city is a tight-knit network, and the lower density locations have more tendrils. Click and drag the graph around if some of the locations floated off the screen. 
+				    </p>
+				    
+				    <p>
+				    	Thanks to <a href="https://www.pnas.org/content/102/32/11157">some beautiful work</a> by network scientists and epidemiologists, we know that disease dynamics in metapopulations are more likely to have multiple waves (or <b>peaks</b>) of infection, and more variation in how long it takes to resolve an epidemic. 
 				    </p>
 
 				    <p>
@@ -205,7 +215,8 @@
 	    		<li><a href="#page4">Plots</a></li>
 	    		<li><a href="#page5">Metapopulations</a></li>
 	    		<li><a href="#page6">Contact Graphs</a></li>
-	    		<li><a href="#page7">Example: Cities and Countrysides</a></li>
+	    		<li><a href="#page7">Example: Cities and Countryside</a></li>
+
 
 			</ul>
 
