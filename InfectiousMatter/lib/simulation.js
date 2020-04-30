@@ -6,6 +6,10 @@ var { MatterCollisionEvents } = require('matter-collision-events');
 Matter.use('matter-wrap', MatterCollisionEvents);
 
 var { jStat } = require('jstat')
+Matter._seed = 5;
+Math.random = Matter.Common.random;
+jStat._random_fn = Matter.Common.random;
+
 var assert = require('assert');
 // module aliases
 let _Viva = require('vivagraphjs');
@@ -96,6 +100,7 @@ function InfectiousMatter(div_name, simulation_params, infection_params, simulat
     });
 
     var mouse = Mouse.create(this.matter_render.canvas);
+    
     this.mouseConstraint = MouseConstraint.create(this.matter_engine, {
         mouse: mouse,
         constraint: {
@@ -105,14 +110,13 @@ function InfectiousMatter(div_name, simulation_params, infection_params, simulat
             }
         }
     });
-
+    
     this.matter_render.mouse = mouse;
 
     World.add(this.matter_engine.world, this.mouseConstraint);
 
     Engine.run(this.matter_engine);
     Render.run(this.matter_render);
-    this.setup_matter_env();
 }
 
 
@@ -140,6 +144,7 @@ InfectiousMatter.prototype.setup_matter_env = function() {
             this.expose_org(this.mouseConstraint.body, AgentStates.S_INFECTED);
         }
         console.log(this.state_counts);
+        console.log(this.agents.length);
     });
 
     Events.on(this.matter_render, "beforeRender", (e) => {
@@ -158,8 +163,8 @@ InfectiousMatter.prototype.setup_matter_env = function() {
         }
 
     });
-
     this.add_event({time: 100, callback: this.pulse_orgs_event(), recurring:true})
+
 
 };
 
@@ -352,12 +357,11 @@ InfectiousMatter.prototype.set_agent_contact_callback = function (callback) {
     this.agent_contact_callback = callback;
 };
 
-InfectiousMatter.prototype.remove_simulator = function() {
+InfectiousMatter.prototype.clear_simulator = function() {
     //Render.stop(this.matter_render);
     World.clear(this.matter_engine.world);
     Engine.clear(this.matter_engine);
     this.event_queue.clear_events();
-    console.log(this.matter_engine.events);
     //this.matter_engine.events = {};
 
     /*
@@ -372,6 +376,23 @@ InfectiousMatter.prototype.remove_simulator = function() {
     this.matter_render = null;
     this.mouseConstraint = null;
     */
+}
+
+InfectiousMatter.prototype.remove_simulator = function() {
+    this.clear_simulator();
+    Render.stop();
+
+    this.matter_engine.events = {};
+    this.matter_render.canvas.remove();
+    this.matter_render.canvas = null;
+    this.matter_render.context = null;
+    this.matter_render.textures = {};
+
+    this.matter_world = null;
+    this.matter_engine = null;
+    this.event_queue = null;
+    this.matter_render = null;
+    this.mouseConstraint = null;
 }
 
 InfectiousMatter.prototype.pulse_orgs_event = function() {

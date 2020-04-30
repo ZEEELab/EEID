@@ -28,6 +28,7 @@ Location.prototype.draw_borders = function(ctx, strokeStyle) {
 	ctx.beginPath();
 	ctx.rect(this.bounds.min.x-2, this.bounds.min.y-2, width+4, height+4);
 	ctx.strokeStyle = strokeStyle;
+	ctx.lineWidth = 2;
 	ctx.stroke();
 };
 
