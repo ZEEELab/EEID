@@ -41,6 +41,8 @@
 				}
 		</style>
 		<link rel="stylesheet" href="assets/css/uikit.min.css">
+		<link rel="stylesheet" href="assets/css/slider_style.css">
+
 	</head>
 	<body>
 
@@ -194,8 +196,8 @@
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Contact Graph</a></h1>
 
-				    <p class="uk-text-lead" id="page6" uk-scrollspy="repeat: true; offset-top: -200">(The 7 Degrees of Disease Transmission)</p>
-
+				    <p class="uk-text-lead">(The 7 Degrees of Disease Transmission)</p>
+				    <div id="page6" uk-scrollspy="repeat: true; offset-top: -200"></div>
 				    <p>
 				    	One of the really neat features of agent based models is that we can keep track of information about each individual in the simulation. This lets us track, for example, who interacted with each other over some period of time. As you might imagine for disease transmission, this could be an incredibly useful bit of information. 
 				    </p>
@@ -209,7 +211,7 @@
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">City and Countryside</a></h1>
 
-				    <p class="uk-text-lead" id="page7" uk-scrollspy="repeat: true; offset-top: -200">Dense cities and more isolated rural areas are connected, and change the dynamics of disease spread</p>
+				    <p class="uk-text-lead" id="page7" uk-scrollspy="cls: uk-animation-fade; repeat: true; offset-top: -200">Dense cities and more isolated rural areas are connected, and change the dynamics of disease spread</p>
 
 				    <p>
 				    	As an example, lets make a metapopulation simulation of a metropolitan area. In a typical metropolitan area, there is a densely populated city surrounded by lower density towns and rural areas. Here, the dense city is in the top left (purple) and the density decreases as we move down and to the right.  
@@ -223,7 +225,21 @@
 				    	Thanks to <a href="https://www.pnas.org/content/102/32/11157">some fantastic work</a> by network scientists and epidemiologists, we know that disease dynamics in metapopulations are more likely to have multiple waves (or <b>peaks</b>) of infection, and more variation in how long it takes to resolve an epidemic. 
 				    </p>
 
-				    <p>
+				    <p>Use the slider to experiment with changing the number of visitors per day to different locations:</p>
+
+				    <div class="uk-container uk-flex">
+					    <div class="uk-form-width-medium">
+							<input id="migrationSlider" class="slider" type="range" min=0 max=30 step=1 value=3>
+						</div>
+
+						<div class="uk-form-width-medium uk-margin-left">
+							<span id="migrationBadge" class="uk-badge uk-badge-notification">
+								3
+							</span>
+						</div>
+					</div>
+					
+					<p>
 				    	Try running this a few times to see the range of possible outcomes!
 				    </p>
 
@@ -234,14 +250,18 @@
                     <p class="uk-text-lead">There are even more configuration options in the full simulator! (Keep Scrolling)</p>
 
 				</article>
+				
+				<div style="height: 200;" class="uk-flex uk-flex-bottom">
+					<a class="uk-button uk-button-primary uk-button-large uk-align-center" href="https://zeeelab.github.io/EEID/metapop2/"> 
+						Launch Full Simulator 
+					</a>
+				</div>
+
 			</div>
-
-
-   			<a class="uk-button uk-button-primary uk-button-large uk-align-center" href="https://zeeelab.github.io/EEID/metapop2/"> 
-					Launch Full Simulator 
-			</a>	
 		</div>
 
+
+			
 		<div class="uk-flex uk-width-1-6 uk-flex-column uk-margin-xlarge-top">
 		    <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset:500" uk-sticky="offset: 50">
 	    		<li><a href="#page1">Introduction</a></li>
