@@ -131,7 +131,7 @@
 				    <p class="uk-text-lead" id="page2" uk-scrollspy="cls: uk-animation-fade; repeat: true; offset-top: 500;">Each circle is an "Agent"</p>
 
 				    <p>
-				    	An agent is just another word for an "individual" in the simulation. In this world, agents are drawn as circles and move around in their world randomly. If they wander too far in one direction, they loop back around on the other end of the world. 
+				    	An agent is just another word for an <b>Individual</b> in the simulation. In this world, agents are drawn as circles and move around in their world randomly. If they wander too far in one direction, they loop back around on the other end of the world. 
 				    </p>
 				    <p> 
 				    	Sometimes the agents bump into each other. It might help to imagine that represents seeing someone in an elevator, visiting a friend, or actually physically bumping into someone. In any case, we'll call these events <b>Contacts</b>.
@@ -181,7 +181,7 @@
 				    <p class="uk-text-lead" id="page5" uk-scrollspy="cls: uk-animation-fade; repeat: true; offset-top: -200">We don't all live in one little box!</p>
 
 				    <p>
-				    	We, like most other organisms on earth, don't live in one big population, but are instead spread across space in different cities or towns, and live in different neighborhoods or complexes. We model these sorts of things as a <b>Metapopulation</b>, where several subpopulations are connected through <b>Migration</b> of individuals. Migration in this abstract sense could represent visiting your friend in a neighboring city, for example. 
+				    	We, like most other organisms on earth, don't live in one big population. Instead we are spread across space in different cities or towns, and live in different neighborhoods or complexes. We model these sorts of things as a <b>Metapopulation</b>, where several subpopulations are connected through <b>Migration</b> of individuals. Migration in this abstract sense could represent visiting your friend in a neighboring city, for example. 
 				    </p>
 				    <p>
 				    	The outcome of this simulation is <b>Stochastic</b>, which means every time you run it you might see something different. Maybe the disease spread slowly through each subpopulation, and you saw a prolonged (but flat) infected curve. Or maybe you saw multiple infection peaks as the disease spread quickly in multiple subpopulations at different times. When we are modeling disease dynamics, it's important to get a sense of the range of possible outcomes and how likely they are. 
@@ -200,6 +200,12 @@
 				    <p>
 				    	One of the really neat features of agent based models is that we can keep track of information about each individual in the simulation. This lets us track, for example, who interacted with each other over some period of time. As you might imagine for disease transmission, this could be an incredibly useful bit of information. 
 				    </p>
+				     <p>
+				    	We can represent these contacts with a <b>Graph</b>. Every node (colored square) in the rightmost visualization depicts one of the agents in the metapopulation. An edge (the line drawn between two nodes) represents a contact that happened within the last 7 days of the simulation.
+				    </p>
+				    <p>
+				    	You'll notice the agents form the same subpopulation tend to be more connected to each other than agents from other locations. You might hear these structures in graphs called <b>Modules</b> or <b>Communities</b>. 
+				    </p>
 
 				</article>
 		
@@ -217,7 +223,7 @@
 				    </p>
 
 				    <p>
-				    	You can easily see the effect of density on the contact graph, where the large city is a tight-knit network, and the lower density locations have more tendrils. Click and drag the graph around if some of the locations floated off the screen. 
+				    	You can easily see the effect of density on the contact graph, where the large city is a tight-knit network, and the lower density locations have more tendrils.
 				    </p>
 				    
 				    <p>
@@ -234,7 +240,7 @@
 				<article class="uk-article uk-height-large">
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Protecting Our Small Towns</a></h1>
 				    <p>
-				    	Smaller and more rural towns are preparing for a battle, but they unfortunately do not have the same pool of resources that large cities have been able to mobilize. People may not have easy access to hospitals, and many of the satellite hospital systems that typically service these locations don't have the required ICUs and equipment to treat COVID-19 patients. There are several good articles about these and other concerns <a href="https://www.statnews.com/2020/04/16/rural-communities-coronavirus-toll/" target="_blank" class="uk-link-muted">here</a>, <a href="https://www.vox.com/2020/4/28/21239536/coronavirus-georgia-south-dakota-missouri-nebraska-rural-america" target="_blank" class="uk-link-muted">here</a>, and <a href="https://www.princeton.edu/news/2020/04/16/princeton-researchers-map-rural-us-counties-most-vulnerable-covid-19" target="_blank" class="uk-link-muted">here</a>.
+				    	Smaller and rural towns are preparing for a battle, but they do not have the same pool of resources that large cities have been mobilizing. People may not have easy access to hospitals, and many of the satellite hospital systems that typically service these locations don't have the required ICUs or equipment to treat COVID-19 patients. There are several good articles about these and concerns and more <a href="https://www.statnews.com/2020/04/16/rural-communities-coronavirus-toll/" target="_blank" class="uk-link-muted">here</a>, <a href="https://www.vox.com/2020/4/28/21239536/coronavirus-georgia-south-dakota-missouri-nebraska-rural-america" target="_blank" class="uk-link-muted">here</a>, and <a href="https://www.princeton.edu/news/2020/04/16/princeton-researchers-map-rural-us-counties-most-vulnerable-covid-19" target="_blank" class="uk-link-muted">here</a>.
 				    </p>
 
 				    <p>
@@ -272,7 +278,7 @@
 					 <p class="uk-text-lead">How Do We Help?</p>
 
 					<p>
-						Remember that larger cities have most of the equipment and ICUs required to respond to COVID-19. When the peaks are spread out or shifted in time, those hospitals can treat more patients coming from rural areas. If the small towns and big cities are synchronized, the hospital system will be far beyond capacity from the start.
+						Remember that larger cities have most of the equipment and ICUs required to treat COVID-19. When the peaks are spread out or shifted in time, those hospitals can treat more patients coming from rural areas. If the small towns and big cities are synchronized, the hospital system will be far beyond capacity from the start.
 					</p>
 
 					<p>
