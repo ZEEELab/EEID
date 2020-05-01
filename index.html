@@ -50,14 +50,14 @@
 
 		<div class="uk-width-5-6 uk-flex-left uk-padding-small">
 
-			<div style="height: 100vh;">
+			<div uk-height-viewport>
 
 				<article class="uk-article">
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">
 				    	Developing an Intuition for Pandemics
 
-				    </a></h1>
+				    </a></h1> 
 
 				    <p class="uk-text-lead"  id="page1" uk-scrollspy="repeat: true">
 
@@ -88,7 +88,7 @@
 				</article>
 			</div>
 
-			<div class="uk-container" style="height: 100vh;">
+			<div uk-height-viewport>
 
 			    <p class="uk-text-lead">Why I Made This</p>
 			    <div class="">
@@ -121,7 +121,7 @@
 				</div>
 			</div>
 
-			<div style="height: 100vh;">
+			<div uk-height-viewport>
 
 				<article class="uk-article">
 				<div ></div>
@@ -140,7 +140,7 @@
 				</article>
 			</div>
 
-			<div style="height: 100vh;">
+			<div uk-height-viewport>
 				<article class="uk-article">
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Infection</a></h1>
@@ -159,7 +159,7 @@
 			</div>
 
 
-			<div style="height: 100vh;" >
+			<div uk-height-viewport>
 				<article class="uk-article">
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Plotting</a></h1>
@@ -173,7 +173,7 @@
 				</article>
 			</div>
 
-			<div style="height: 100vh;" >
+			<div uk-height-viewport >
 				<article class="uk-article">
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Multiple Locations</a></h1>
@@ -190,7 +190,7 @@
 				</article>
 			</div>
 
-			<div style="height: 100vh;" >
+			<div uk-height-viewport>
 				<article class="uk-article">
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Contact Graph</a></h1>
@@ -205,7 +205,7 @@
 		
    			</div>
 
-   			<div style="height: 100vh;" >
+   			<div uk-height-viewport >
 				<article class="uk-article">
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">City and Countryside</a></h1>
@@ -221,10 +221,22 @@
 				    </p>
 				    
 				    <p>
-				    	Thanks to <a href="https://www.pnas.org/content/102/32/11157">some fantastic work</a> by network scientists and epidemiologists, we know that disease dynamics in metapopulations are more likely to have multiple waves (or <b>peaks</b>) of infection, and more variation in how long it takes to resolve an epidemic. 
+				    	Thanks to <a href="https://www.pnas.org/content/102/32/11157" target="_blank" class="uk-link-muted">some fantastic work</a> by network scientists and epidemiologists, we know that disease dynamics in metapopulations are more likely to have multiple waves (or <b>peaks</b>) of infection, and more variation in how long it takes to resolve an epidemic. <a href="https://www.medrxiv.org/content/10.1101/2020.04.15.20064980v1.full.pdf" target="_blank" class="uk-link-muted">A recent (not yet peer-reviewed) pre-print </a> also highlights the role of density in metapopulations on the intensity of COVID-19. Counterintuitively, lower density locations had more intense outbreaks, with most of the infections happening in a relatively short period of time. This observation is critical for our next steps in pandemic policy making. 
 				    </p>
 
-				    <p>Use the slider to experiment with changing the number of visitors per day to different locations:</p>
+				    </article>
+			</div>
+
+			<div uk-height-viewport>
+				<article class="uk-article uk-height-large">
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Protecting Our Small Towns</a></h1>
+				    <p>
+				    	Smaller and more rural towns are preparing for a battle, but they unfortunately do not have the same pool of resources that large cities have been able to mobilize. People may not have easy access to hospitals, and many of the satellite hospital systems that typically service these locations don't have the required ICUs and equipment to treat COVID-19 patients. There are several good articles about these and other concerns <a href="https://www.statnews.com/2020/04/16/rural-communities-coronavirus-toll/" target="_blank" class="uk-link-muted">here</a>, <a href="https://www.vox.com/2020/4/28/21239536/coronavirus-georgia-south-dakota-missouri-nebraska-rural-america" target="_blank" class="uk-link-muted">here</a>, and <a href="https://www.princeton.edu/news/2020/04/16/princeton-researchers-map-rural-us-counties-most-vulnerable-covid-19" target="_blank" class="uk-link-muted">here</a>.
+				    </p>
+
+				    <p>
+				    	To get an intuition about how limiting movement between the cities and rural areas affects disease dynamics, try experimenting with the slider and see what happens when there is a lot of movement.  
+				    </p>
 
 				    <div class="uk-container uk-flex">
 					    <div class="uk-form-width-medium">
@@ -239,29 +251,57 @@
 					</div>
 					
 					<p>
-				    	Try running this a few times to see the range of possible outcomes!
+						If you cranked up the number of visitors, you probably saw an effect on the contact network and watched only a single peak of infections that hit the high and low density locations at similar times.
+					</p>
+
+					<p>
+						Now, try keeping movement limited to just a few visitors. You'll probably see a more spread out peak, and maybe even multiple peaks as the epidemic is no longer <b>synchronized</b> between locations. 
+					</p>
+
+					<p>
+				    	Try running the simulation a few times to get a sense of the possible outcomes!
 				    </p>
 
 					<button id="restart_btn" class="uk-button uk-button-secondary" href="">
 						Restart Simulation
 					</button> 
+					 <br/><br/>
+					 <p class="uk-text-lead">How Do We Help?</p>
 
-                    <p class="uk-text-lead">There are even more configuration options in the full simulator! (Keep Scrolling)</p>
+					<p>
+						Remember that larger cities have most of the equipment and ICUs required to respond to COVID-19. When the peaks are spread out or shifted in time, those hospitals can treat more patients coming from rural areas. If the small towns and big cities are synchronized, the hospital system will be far beyond capacity from the start.
+					</p>
+
+					<p>
+						While we're waiting for therapies for COVID-19, the best we can do is take physical distancing and stay-home orders seriously. Even when it seems like things are improving, or when our community hasn't had an outbreak yet, we are still protecting the spread beyond current hot spots into more vulnerable communities. 
+					</p>
 
 				</article>
-				
-				<div style="height: 200;" class="uk-flex uk-flex-bottom">
+
+				<div uk-height-viewport>
+
+				</div>
+
+			</div>
+			<div class="uk-padding-large" >
+				<p class="uk-text-lead uk-padding-large">There are even more configuration options in the full simulator!</p>
+
+				<div style="height: 200;" class="uk-container uk-padding-medium">
 					<a class="uk-button uk-button-primary uk-button-large uk-align-center" href="https://zeeelab.github.io/EEID/metapop2/"> 
 						Launch Full Simulator 
 					</a>
 				</div>
-
+				<div class="uk-card uk-card-default uk-card-body">
+					<h3 class="uk-card-title">Shout Outs</h3>
+					I want to thank my friends and colleagues that helped, you all were instrumental. Particular shout out to <a href="https://azjacobs.com/" target="_blank" class="uk-link-muted">Abbie Jacobs</a>, <a href="https://sites.lsa.umich.edu/scottepage/" target="_blank" class="uk-link-muted">Scott E. Page</a>, <a href="http://scarpino.github.io/" target="_blank" class="uk-link-muted">Samuel Scarpino</a>, and <a href="https://medium.com/ogplexus" target="_blank" class="uk-link-muted">C. Brandon Ogbunu</a>.
+				</div>
 			</div>
+
 		</div>
 
 
 			
-		<div class="uk-flex uk-width-1-6 uk-flex-column uk-margin-xlarge-top">
+		<div class="uk-width-1-6 uk-flex-column uk-margin-xlarge-top">
 		    <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset:500" uk-sticky="offset: 50">
 	    		<li><a href="#page1">Introduction</a></li>
 	    		<li><a href="#page2">Simple Agents</a></li>
