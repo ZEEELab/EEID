@@ -1,2 +1,3 @@
 - Add congregation locations -- e.g., grocery stores, classrooms
 - Add hospital/quarantine location
+- Add button to 'start' an infection.
