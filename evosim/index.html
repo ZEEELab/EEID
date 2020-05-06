@@ -1,0 +1,69 @@
+<html>
+	<head>
+		  <style>
+				#graphDiv {
+				  width: 300;
+				  height: 400; 
+				  overflow: hidden; 
+				  padding: 0;
+				  margin: 0;
+				  background-color: #d8d8d8;
+				  visibility: hidden;
+				}
+				#matterDiv {
+				  width: 540;
+				  height: 400; 
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				#plotDiv {
+				  width: 300;
+				  height: 400;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				div.row {
+					width: 98vw;
+					height: 400;
+				}
+				div.simSpacer {
+					height: 400;
+					width:100%;
+				}
+		</style>
+		<link rel="stylesheet" href="assets/css/uikit.min.css">
+		<link rel="stylesheet" href="assets/css/slider_style.css">
+
+	</head>
+	<body>
+
+	<div class="uk-flex uk-container"> 
+
+		<div class="uk-width-5-6 uk-flex-left uk-padding-small">
+			
+			<div id="simContainer" uk-sticky="offset: 0" class="uk-align-center uk-width-1-1" style="background: rgba(255, 255, 255, 0.95); z-index: 100" >
+				<div class="uk-align-center" style="height:600; width:1200;" >
+					<div class="" id="plotDiv"></div>
+					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true;" id="matterDiv"></div>
+					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true" id="graphDiv"></div>
+
+				</div>
+			</div>
+			
+
+   			<div uk-height-viewport >
+				<article class="uk-article">
+
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Evolving Pathogen</a></h1>
+
+				    <p class="uk-text-lead" id="page7" uk-scrollspy="cls: uk-animation-fade; repeat: true; offset-top">Pathogens mutate and change color randomly</p>
+
+				    </article>
+			</div>
+	</div>
+
+	<script src="bundle_evosim.js" charset="UTF-8"></script>
+	</body>
+</html>
