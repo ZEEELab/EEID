@@ -1,25 +1,23 @@
 <html>
 	<head>
 		  <style>
-				#graphDiv {
-				  width: 300;
-				  height: 400; 
-				  overflow: hidden; 
-				  padding: 0;
-				  margin: 0;
-				  background-color: #d8d8d8;
-				  visibility: hidden;
-				}
 				#matterDiv {
-				  width: 540;
-				  height: 400; 
+				  width: 490;
+				  height: 395; 
 				  padding: 0;
 				  margin: 0;
 				  float: left;
 				}
-				#plotDiv {
-				  width: 300;
-				  height: 400;
+				#phyloDiv {
+				  width: 400;
+				  height: 395;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				}
+				#graphDiv {
+				  width: 200;
+				  height: 395;
 				  padding: 0;
 				  margin: 0;
 				  float: left;
@@ -39,27 +37,42 @@
 	</head>
 	<body>
 
-	<div class="uk-flex uk-container"> 
+	<div class="uk-container"> 
 
-		<div class="uk-width-5-6 uk-flex-left uk-padding-small">
+		<div class="uk-width-5-6 uk-flex-left">
 			
-			<div id="simContainer" uk-sticky="offset: 0" class="uk-align-center uk-width-1-1" style="background: rgba(255, 255, 255, 0.95); z-index: 100" >
-				<div class="uk-align-center" style="height:600; width:1200;" >
-					<div class="" id="plotDiv"></div>
+   			<div uk-height-viewport >
+   				<div id="simContainer" uk-sticky="offset: 0" class="uk-align-center uk-width-1-1" style="background: rgba(255, 255, 255, 0.95); z-index: 100" >
+				<div class="uk-align-center" style="height:400; width:1200;" >
+					<div class="" id="phyloDiv"></div>
 					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true;" id="matterDiv"></div>
-					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true" id="graphDiv"></div>
-
+					<div class="" id="graphDiv"></div>
 				</div>
 			</div>
-			
 
-   			<div uk-height-viewport >
 				<article class="uk-article">
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Evolving Pathogen</a></h1>
 
 				    <p class="uk-text-lead" id="page7" uk-scrollspy="cls: uk-animation-fade; repeat: true; offset-top">Pathogens mutate and change color randomly</p>
+ 					
+ 					<div class="uk-container uk-flex">
+				    	<p class="uk-margin-right"><b>Small World Visitors Per Day:</b>
+						    <div class="uk-form-width-medium">
+								<input id="migrationSlider" class="slider" type="range" min=0 max=30 step=1 value=3>
+							</div>
+						</p>
 
+						<div class="uk-form-width-medium uk-margin-left">
+							<span id="migrationBadge" class="uk-badge uk-badge-notification">
+								3
+							</span>
+						</div>
+					</div>
+
+				    <button id="restart_btn" class="uk-button uk-button-secondary" href="">
+						Restart Simulation
+					</button> 
 				    </article>
 			</div>
 	</div>
