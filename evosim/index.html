@@ -7,20 +7,26 @@
 				  padding: 0;
 				  margin: 0;
 				  float: left;
+				  background-color: #d8d8d8;
+
 				}
 				#phyloDiv {
-				  width: 400;
+				  width: 300;
 				  height: 395;
 				  padding: 0;
 				  margin: 0;
 				  float: left;
+				  background-color: #777777;
+
 				}
 				#graphDiv {
-				  width: 200;
+				  width: 300;
 				  height: 395;
 				  padding: 0;
 				  margin: 0;
 				  float: left;
+				  background-color: #777777;
+
 				}
 				div.row {
 					width: 98vw;
@@ -31,8 +37,8 @@
 					width:100%;
 				}
 		</style>
-		<link rel="stylesheet" href="../assets/css/uikit.min.css">
-		<link rel="stylesheet" href="../assets/css/slider_style.css">
+		<link rel="stylesheet" href="assets/css/uikit.min.css">
+		<link rel="stylesheet" href="assets/css/slider_style.css">
 
 	</head>
 	<body>
@@ -45,7 +51,7 @@
    				<div id="simContainer" uk-sticky="offset: 0" class="uk-align-center uk-width-1-1" style="background: rgba(255, 255, 255, 0.95); z-index: 100" >
 				<div class="uk-align-center" style="height:400; width:1200;" >
 					<div class="" id="phyloDiv"></div>
-					<div class="" id="matterDiv"></div>
+					<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true;" id="matterDiv"></div>
 					<div class="" id="graphDiv"></div>
 				</div>
 			</div>
