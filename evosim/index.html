@@ -38,8 +38,9 @@
 				  float: left;
 				  background-color: #999999;
 				  visibility: hidden;
-
-
+				}
+				#simContainer {
+					min-width: 1000;
 				}
 				div.row {
 					width: 98vw;
@@ -114,7 +115,7 @@
 						In the <a href="https://infectiousmatter.com/" target="_blank" class="uk-link-muted">last walk through</a>, we added multiple locations connected by random visitors. We're going to extend that a bit here. First, we're going to add <i>even more</i> locations. 
 					</p>
 					<p>
-							<div uk-sticky class="uk-align-center uk-width-1-1" style="height:350; background: rgba(255, 255, 255, 0.95); z-index: 100">
+							<div id="simContainer" uk-sticky class="uk-align-center uk-width-1-1" style="height:350; background: rgba(255, 255, 255, 0.95); z-index: 100">
 								<div class="" id="phyloDiv"></div>
 								<div class="" uk-scrollspy="cls: uk-animation-slide-right; repeat: true;" id="matterDiv"></div>
 								<div class="" id="graphDiv"></div>
@@ -210,7 +211,7 @@
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Small World Pandemic</a></h1>
 
 				    <p class="uk-text-lead" id="page5" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Let's see an infection spread in a small world</p>
-			    	<table class="uk-table uk-table-small" uk-sticky="offset:350" style="background: rgba(255, 255, 255, 0.95); z-index: 100">
+			    	<table class="uk-table uk-table-small" uk-sticky="offset:355" style="background: rgba(255, 255, 255, 0.95); z-index: 100">
 			    		<tbody>
 			    			<tr>
 			    				<td><b>Local Visitors Per Day:</b></td>
