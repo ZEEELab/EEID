@@ -447,7 +447,7 @@ window.onload = function() {
         document.getElementById('phyloDiv').style.visibility = "visible";
         document.getElementById('graphDiv').style.visibility = "visible";
 
-        world_params.num_to_infect = 2;
+        world_params.num_to_infect = 1;
         pathogen_mut_prob: 0.0
         setup_evo_sim(world_params.num_local_visitors, world_params.num_global_visitors);
         InfectiousMatterSim.simulation_params.pathogen_mut_prob = 0.25;

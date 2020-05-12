@@ -87,7 +87,7 @@
 
 					</p>
 					<p>
-						This particular <b>Genotype</b> (not strain) is most likely increasing in frequency because it happened to be the lucky one that seeded an outbreak in a new location. This genotype's lucky break is an example of something we call <b>Founder Effects</b> in ecology and evolutionary biology. 
+						A new <b>Genotype</b> (not strain) is most likely increasing in frequency because it happened to be the lucky one that seeded an outbreak in a new location. This genotype's lucky break is an example of something we call <b>Founder Effects</b> in ecology and evolutionary biology. 
 					</p>
 					<p>
 						Let's watch an evolving pathogen spread into multiple locations right here in your browser so you can see what founder effects look like!
@@ -134,10 +134,10 @@
 				    <p class="uk-text-lead" id="page3" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Neighboring locations are more likely to share visitors</p>
  					
  					<p>
- 						Let's turn on the contact graph so we can see how visitors moving locally between locations changes the network of interactions. 
+ 						Let's turn on the contact graph so we can see how visitors moving locally between locations change the network of interactions. 
  					</p>
  					<p>
- 						Right now, there are no agents leaving their home location. The contact network has probably mostly floated off your screen. Each location has a tightly connected hairball network with no links to agents in neighboring locations.
+ 						Right now, there are no agents leaving their home location. Each location has a tightly connected hairball network with no links to agents in neighboring locations. Because of the lack of interactions between locations, most of the contact network has probably floated off your screen.
  					</p>
 
  					<p>
@@ -194,10 +194,10 @@
 						</div>
 					</div>
 					 <p>
-						 These long-range travelers quickly shrink the contact graph in the browser! You might think of these global links as <i>shortcuts</i> through the local ring-shaped network we saw earlier. As you might imagine, this makes getting from one location to another take less time. In a sense, we've made our simulated world <i>smaller</i>.
+						 These long-range travelers quickly shrink the contact graph in the browser. You can think of these global links as <i>shortcuts</i> through the local ring-shaped network we saw earlier. As you might imagine, this makes getting from one location to another take less time. In a sense, we've made our simulated world <i>smaller</i>.
  					</p>
  					<p>
- 						This type of network, where there is a strong local component with some global interactions, is called a Small World Network. It turns out these type of networks pop up all over the place: neurons, genes, electrical grids, and our Facebook social networks. Most importantly for us, the patterns of global travel also have these small world properties! 
+ 						This type of network, where there is a strong local component with some global interactions, is called a Small World Network. It turns out these networks pop up all over the place: neurons, genes, electrical grids, and our Facebook social networks. Most importantly for us, the patterns of global travel also have these small world properties! 
  					</p>
 
 				</article>
@@ -209,7 +209,7 @@
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Small World Pandemic</a></h1>
 
-				    <p class="uk-text-lead" id="page5" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Let's see the infection spread in a small world</p>
+				    <p class="uk-text-lead" id="page5" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Let's see an infection spread in a small world</p>
 			    	<table class="uk-table uk-table-small" uk-sticky="offset:350" style="background: rgba(255, 255, 255, 0.95); z-index: 100">
 			    		<tbody>
 			    			<tr>
@@ -255,7 +255,7 @@
 			    	</p>
 
 			    	<p>
-			    		See what happens when you adjust the number of local and global visitors before seeding an infection. You can press the Restart Simulation button to start as many new pandemics as you'd like. 
+			    		See what happens when you adjust the number of local and global visitors before seeding an infection. You can press the Restart Simulation button to start as many new virtual pandemics as you wish. 
 			    	</p>
 
 				</article>
@@ -266,9 +266,12 @@
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Visualizing Genetic Relatedness</a></h1>
 
-				    <p class="uk-text-lead" id="page6" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Adding a Phylogenetic Network</p>
+				    <p class="uk-text-lead" id="page6" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Descent, but without modification</p>
 				    <p>
-				    	To get a visual sense of the evolutionary dynamics going on in the pathogen population, we'll create a network depicting the genetic relationships between pathogens. For starters, we'll seed the world with two distinct pathogen genotypes. Each new infection gets a node in this phylogenetic network, and it's connected to the <b>Parent</b> genotype. Since we haven't enabled mutations yet, every node is connected to one of the two introduced pathogens.
+				    	To get a visual sense of the evolutionary dynamics going on in the pathogen population, we'll create a network depicting the genetic relationships between pathogens. This <b>Phylogenetic Network</b> will show each <b>Descendant</b> (child) genotype connected to it's <b>Progenitor</b> (parent). 
+				    </p> 
+				    <p>
+				    	For starters, we'll seed the world with two distinct pathogen genotypes. Since we haven't enabled mutations yet, every new pathogen node is connected to one of the two introduced progenitors.
 				    </p>
 
 				    <p>
@@ -276,7 +279,7 @@
 				    </p>
 
 				    <p>
-				    	You probably noticed that some of the nodes were more active than others in the phylogenetic network and ended up with larger clumps. Those were the lucky genotypes that by chance spread to more locations and produced more offspring. However, these genotypes are functionally identical to each other. In microbiology lingo, they different genotypes of the same <b>Strain</b>.
+				    	You probably noticed that some of the nodes were more active than others in the phylogenetic network and ended up with larger clumps of descendants. Those were the lucky genotypes that by chance spread to more locations and produced more offspring. However, these genotypes are functionally identical to each other. In microbiology lingo, they different genotypes of the same <b>Strain</b>.
 				    </p>
 				    <p>
 				    	Now let's turn on the mutations! 
@@ -289,24 +292,31 @@
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Mutant Pathogens</a></h1>
 
-				    <p class="uk-text-lead" id="page7" uk-scrollspy="cls: uk-animation-fade; repeat: true;">
+				    <p class="uk-text-lead" id="page7" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Descent with modification!</p>
 				    	
 				    <p>
-				    	Although we've enabled mutations, we're not changing any of the pathogen's biological features. We're not introducing any new strains. In fact, the only thing we're changing in this simulation is the color!
+				    	Although we've enabled mutations, we're not changing any of the pathogen's biological features. We're not introducing any new strains. In fact, the only thing we're changing in this simulation is the color.
 				    </p>
 				    <p>
-				    	Even so, you'll probably see what looks like a new strain spreading in the metapopulation! But, you're just watching founder effects in action. 
+				    	Even so, you'll probably see what looks like a new strain spreading in the metapopulation! But, you're just seeing founder effects in action. 
 
 				    </p>
 				    
 				    <p>
-				    	Be sure to investigate how the amount of local and global movement affects the spread of pathogen mutants. For example, what happens at the two extremes of only local or only global movement? Remember that this is a stochastic simulation, so you'll have to run the simulation a few times to get a sense of the range of possible outcomes. 
+				    	Be sure to investigate how the amount of local and global movement affects the spread of pathogen mutants. For example, what happens at the two extremes of only local or only global movement? Remember, this is a stochastic simulation, so you'll have to run it a few times to get a sense of the range of possible outcomes. 
 				    </p>
 
 				    <p>
 				    	It's easy to imagine seeing these patterns and wanting to attribute them to functional adaptations. However, in the case of SARS-CoV-2, there's really no evidence that we're facing multiple strains. Of course, that might change. We're probably all getting used to feeling like things we learned a week ago are already outdated. But for now, we can get back to arguing about whether viruses are alive or not. 
 				    </p>
+				    <p>
+				    	<div class="uk-card uk-card-default uk-card-body uk-width-3-5 uk-align-center uk-flex-center">
+							Although there is only one strain of SARS-CoV-2, the strain we have is particularly good at spreading! Keep doing your part to reduce transmission. That includes staying home as much as you can, wearing masks while in public, keeping at least 6 feet of distance between people, and washing your hands often.
+						</div>
+				    </p>
 				</article>
+
+
 			</div>
 
 		</div>
@@ -317,7 +327,7 @@
 	    		<li><a href="#page3">Local Movement</a></li>
 	    		<li><a href="#page4">Global Movement</a></li>
 	    		<li><a href="#page5">Small World Pandemic</a></li>
-	    		<li><a href="#page6">Phylogenetic Network</a></li>
+	    		<li><a href="#page6">Visualizing Genetic Relatedness</a></li>
 	    		<li><a href="#page7">Mutant Pathogens</a></li>
 
 			</ul>
