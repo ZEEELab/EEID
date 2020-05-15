@@ -67,7 +67,11 @@
 		</style>
 		<link rel="stylesheet" href="../assets/css/uikit.min.css">
 		<link rel="stylesheet" href="../assets/css/slider_style.css">
-
+		<meta charset="UTF-8">
+		<meta name="description" content="browser based infectious disease simulator">
+		<meta name="keywords" content="disease,pathogen,covid19,virus,interactive,simulation,agent-based">
+		<meta name="author" content="Luis Zaman">
+		<title>It's a Small World</title>
 	</head>
 	<body>
 
@@ -189,7 +193,7 @@
 					</p>
 
 					<p>
-						 As you might imagine, this makes getting from one location to another take fewer steps. In a sense, we've made the separation between individuals in the world <i>smaller<i>. 
+						 As you might imagine, this makes getting from one location to another take fewer steps. In a sense, we've made the separation between individuals in the world <i>smaller</i>. 
  					</p>
  					<p>
  						This type of network, where there is a strong local component (like our ring) with some global interactions, is an example of a <b>Small World Network</b>. It turns out these networks pop up all over the place: <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002522" target="_blank" class="uk-link-muted">neurons</a>, <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2001.1711" target="_blank" class="uk-link-muted">genes</a>, <a href="https://www.nature.com/articles/30918." target="_blank" class="uk-link-muted">electrical grids</a>, and our <a href="https://arxiv.org/abs/1111.4503" target="_blank" class="uk-link-muted">Facebook social networks</a>. Most importantly for us, the <a href="https://www.nature.com/articles/srep05638" target="_blank" class="uk-link-muted">patterns of air travel</a> also have these small world properties! 
@@ -295,7 +299,8 @@
 					            </div>					            
 					        </div>
 					    </div>
-				    <div>
+				   		
+				   		<div>
 					        <div class="uk-card uk-card-small uk-box-shadow-small">								
 								<div class="uk-card-media-top">
 					                <img src="../assets/img/all_global.png" alt="">
@@ -342,7 +347,7 @@
 			</div>
 
 		</div>
-		<div class="uk-width-1-6 uk-flex-column uk-flex-right uk-align-right uk-margin-xlarge-top">
+		<div class="uk-flex-right uk-width-1-6">
 		    <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset: 480" uk-sticky="offset: 200">
 	    		<li><a href="#page1">It's a Small World</a></li>
 	    		<li><a href="#page2">Local Movement</a></li>
@@ -355,6 +360,6 @@
 		</div>
 	</div>
 
-	<script src="bundle_smallworld.js" charset="UTF-8"></script>
+	<script src="bundle_smallworld.min.js" charset="UTF-8"></script>
 	</body>
 </html>
