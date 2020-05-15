@@ -79,7 +79,7 @@
 
 					<p class="uk-text-lead" id="page1" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Most of the time that's a good thing</p>
 					<p>
-						In the <a href="https://infectiousmatter.com/" target="_blank" class="uk-link-muted">last walk through</a>, we built up our web based pandemic simulator. We added multiple locations <b>(Subpopulations)</b> and experimented with how the spread of a pathogen was affected by having a few random visitors moving between them <b>(Migration)</b>. This time we're going to extend the model a bit further. You will get to investigate how including a more realistic kinds of movement between locations speeds up or slows down the spread of a disease.
+						In the <a href="https://infectiousmatter.com/" target="_blank" class="uk-link-muted">last walk through</a>, we built up our web based pandemic simulator. We added multiple locations <b>(Subpopulations)</b> and experimented with how the spread of a pathogen was affected by having a few random visitors moving between them <b>(Migration)</b>. This time we're going to extend the model a bit further. You will get to investigate how including more realistic kinds of movement between locations speeds up or slows down the spread of a disease.
 					</p>
 					<p>
 						First, we have to add <i>even more</i> subpopulations. 
@@ -115,7 +115,7 @@
  						Let's turn on the contact graph so we can see how visitors moving locally between locations change the network of interactions. 
  					</p>
  					<p>
- 						Right now, there are no agents leaving their home location. Each subpopulation shows up as a tightly connected hairball in the contact graph with no links to agents in neighboring locations. Without these connections holding locations together, most of the contact network has probably floated off your screen.
+ 						Right now, there are no agents leaving their home location. Each subpopulation shows up as a tightly connected ball (or hairball) in the contact graph with no links to agents in neighboring locations. Without these connections holding locations together, most of the contact network has probably floated off your screen.
  					</p>
 
  					<p>
@@ -189,7 +189,7 @@
 					</p>
 
 					<p>
-						 As you might imagine, this makes getting from one location to another take fewer steps. In a sense, we've made our simulated world <i>smaller</i>.
+						 As you might imagine, this makes getting from one location to another take fewer steps. In a sense, we've made the separation between individuals in the world <i>smaller<i>. 
  					</p>
  					<p>
  						This type of network, where there is a strong local component (like our ring) with some global interactions, is an example of a <b>Small World Network</b>. It turns out these networks pop up all over the place: <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002522" target="_blank" class="uk-link-muted">neurons</a>, <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2001.1711" target="_blank" class="uk-link-muted">genes</a>, <a href="https://www.nature.com/articles/30918." target="_blank" class="uk-link-muted">electrical grids</a>, and our <a href="https://arxiv.org/abs/1111.4503" target="_blank" class="uk-link-muted">Facebook social networks</a>. Most importantly for us, the <a href="https://www.nature.com/articles/srep05638" target="_blank" class="uk-link-muted">patterns of air travel</a> also have these small world properties! 
