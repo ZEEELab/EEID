@@ -1,0 +1,360 @@
+<html>
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166271018-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-166271018-1');
+		</script>
+
+		  <style>
+		  		a.uk-link-muted {
+		  			border-bottom: 1px dashed #999999;
+		  		}
+		  		a.uk-link-muted:hover {
+		  			text-decoration: none;
+		  			border-bottom: 1px dashed #222222;
+		  		}
+				#matterDiv {
+				  width: 440;
+				  height: 355; 
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				  background-color: #d8d8d8;
+
+				}
+				#plotDiv {
+				  width: 250;
+				  height: 355;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				  background-color: #999999;
+				  visibility: hidden;
+
+				}
+				#graphDiv {
+				  width: 250;
+				  height: 355;
+				  padding: 0;
+				  margin: 0;
+				  float: left;
+				  background-color: #999999;
+				  visibility: hidden;
+				}
+				#simContainer {
+					white-space: nowrap;
+					display: inline-flex;
+					flex-wrap: nowrap;
+
+				}
+				div.no_wrap {
+					vertical-align: top;
+					display: inline-flex;
+				}
+				div.row {
+					width: 98vw;
+					height: 400;
+				}
+				div.simSpacer {
+					height: 400;
+					width:100%;
+				}
+		</style>
+		<link rel="stylesheet" href="../assets/css/uikit.min.css">
+		<link rel="stylesheet" href="../assets/css/slider_style.css">
+
+	</head>
+	<body>
+
+	<div class="uk-container uk-flex"> 
+		<div class="uk-width-5-6 uk-flex-left uk-margin-small">
+			<div uk-height-viewport>
+				<article class="uk-article">
+					<h1 class="uk-article-title"><a class="uk-link-reset" href="">It's a Small World</a></h1>
+
+					<p class="uk-text-lead" id="page1" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Most of the time that's a good thing</p>
+					<p>
+						In the <a href="https://infectiousmatter.com/" target="_blank" class="uk-link-muted">last walk through</a>, we built up our web based pandemic simulator. We added multiple locations <b>(Subpopulations)</b> and experimented with how the spread of a pathogen was affected by having a few random visitors moving between them <b>(Migration)</b>. This time we're going to extend the model a bit further. You will get to investigate how including a more realistic kinds of movement between locations speeds up or slows down the spread of a disease.
+					</p>
+					<p>
+						First, we have to add <i>even more</i> subpopulations. 
+					</p>
+					
+					<div uk-sticky class="uk-align-center" style="height:355; background: rgba(255, 255, 255, 0.95); z-index: 100">
+						<div id="simContainer">
+							<div class="no_wrap" id="plotDiv"></div>
+							<div class="no_wrap  uk-box-shadow-medium" id="matterDiv"></div>
+							<div class="no_wrap" id="graphDiv"></div>
+						</div>
+					</div>
+
+					<p>
+						Right now, agents only move around in their own location. Let's start by adding some <b>Local</b> visitors. 
+					</p>
+				    <p class="uk-align-bottom">
+				    	<span class="uk-label uk-label-warning">disclaimer</span>  I am not an Epidemiologist or Public Health expert. This is not designed to be a predictive simulation of COVID-19. It is a simple model to understand and visualize basic disease dynamics. 
+				    </p>
+				</article>
+
+			</div>
+
+   			<div uk-height-viewport >
+
+				<article class="uk-article">
+
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Local Movement</a></h1>
+
+				    <p class="uk-text-lead" id="page2" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Neighboring locations are more likely to share visitors</p>
+ 					
+ 					<p>
+ 						Let's turn on the contact graph so we can see how visitors moving locally between locations change the network of interactions. 
+ 					</p>
+ 					<p>
+ 						Right now, there are no agents leaving their home location. Each subpopulation shows up as a tightly connected hairball in the contact graph with no links to agents in neighboring locations. Without these connections holding locations together, most of the contact network has probably floated off your screen.
+ 					</p>
+
+ 					<p>
+ 						Let's increase the number of <b>Local</b> visitors to about 5 by adjusting the slider. Watch the contact network as it floats back into view. 
+ 					<div class="uk-container uk-flex">
+				    	<p class="uk-margin-right"><b>Local Visitors Per Day:</b>
+						    <div class="uk-form-width-medium">
+								<input id="localMigrationSlider" class="slider" type="range" min=0 max=30 step=1 value=0>
+							</div>
+						</p>
+
+						<div class="uk-form-width-medium uk-margin-left">
+							<span id="localMigrationBadge" class="uk-badge uk-badge-notification uk-padding-small">
+								0
+							</span>
+						</div>
+					</div>
+					<p>
+						Now that agents are leaving their home location, the contact network gets pulled back together. 
+ 					</p>
+
+ 					<p>
+ 						If you pay close attention to the visitors' colors blipping in and out of the different locations, you'll notice that they're always from just one location away. If you dial up the number of local visitors even higher, you can start to see the <b>Structure</b> of the local migration network. 
+ 					</p>
+
+ 					<p>
+ 						It's a <b>Ring</b>! In the grid of locations, the color spectrum hopefully helps you see which locations are neighbors. The locations in the ring are shown flattened from top-to-bottom, and then left-to-right in the subpopulation view. The whole thing loops from the the bottom right back to the top left (and vice versa). 
+ 					</p>
+
+				</article>
+			</div>
+
+			<div uk-height-viewport >
+
+				<article class="uk-article">
+
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Global Movement</a></h1>
+
+				    <p class="uk-text-lead" uk-scrollspy="cls: uk-animation-fade; repeat: true;">
+				    	We don't live in a ring world
+				    </p>
+			    	<div class="uk-box-shadow-bottom" id="page3" uk-scrollspy="cls: uk-animation-slide-left; repeat: true;">
+			    		<img class="uk-border-rounded" data-src="../assets/img/pepe_silvia_meme.jpeg" width="300" uk-img>
+			    	</div>
+
+				    <p>
+				    	We travel outside of our immediate neighborhoods and sometimes travel across the entire globe. We can simulate these kinds of long-range visits by moving an agent to a random location that isn't necessarily close.
+ 					</p>
+
+ 					<p>
+ 						I've reset the number of local visitors to 10, but now you can use the slider to adjust the number of <b>Global</b> visitors. 
+ 					</p>
+ 					<p>
+ 						First try adding just one or two global visitors per day and watch what happens to the contact network. 
+ 					</p>
+ 					<div class="uk-container uk-flex">
+				    	<p class="uk-margin-right"><b>Global Visitors Per Day:</b>
+						    <div class="uk-form-width-medium">
+								<input id="globalMigrationSlider" class="slider" type="range" min=0 max=30 step=1 value=0>
+							</div>
+						</p>
+
+						<div class="uk-form-width-medium uk-margin-left">
+							<span id="globalMigrationBadge" class="uk-badge uk-badge-notification uk-padding-small">
+								0
+							</span>
+						</div>
+					</div>
+					 <p>
+						 These long-range travelers shrink the network in the browser. You can think of these global links as <i>shortcuts</i> through the local ring network. It doesn't take many of these long-range interactions to see this effect!
+					</p>
+
+					<p>
+						 As you might imagine, this makes getting from one location to another take fewer steps. In a sense, we've made our simulated world <i>smaller</i>.
+ 					</p>
+ 					<p>
+ 						This type of network, where there is a strong local component (like our ring) with some global interactions, is an example of a <b>Small World Network</b>. It turns out these networks pop up all over the place: <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002522" target="_blank" class="uk-link-muted">neurons</a>, <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2001.1711" target="_blank" class="uk-link-muted">genes</a>, <a href="https://www.nature.com/articles/30918." target="_blank" class="uk-link-muted">electrical grids</a>, and our <a href="https://arxiv.org/abs/1111.4503" target="_blank" class="uk-link-muted">Facebook social networks</a>. Most importantly for us, the <a href="https://www.nature.com/articles/srep05638" target="_blank" class="uk-link-muted">patterns of air travel</a> also have these small world properties! 
+ 					</p>
+
+				</article>
+			</div>
+
+			<div uk-height-viewport>
+
+				<article class="uk-article uk-margin-xlarge-top">
+
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Small World Pandemic</a></h1>
+
+				    <p class="uk-text-lead" id="page4" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Let's watch a pandemic spread in a small world</p>
+			    	<table class="uk-table uk-table-small" uk-sticky="offset:355" style="background: rgba(255, 255, 255, 0.95); z-index: 100">
+			    		<tbody>
+			    			<tr>
+			    				<td><b>Local Visitors Per Day:</b></td>
+			    				<td>
+			    					<div class="uk-form-width-medium">
+
+			    						<input id="localMigrationSlider_p5" class="slider" type="range" min=0 max=30 step=1 value=10>
+			    					</div>
+			    				</td>
+			    				<td>
+			    					<div class="uk-form-width-medium">
+			    						<span id="localMigrationBadge_p5" class="uk-badge uk-badge-notification">10</span>
+			    					</div>
+			    				</td>
+			    			</tr>
+			    			<tr>
+			    				<td><b>Global Visitors Per Day:</b></td>
+			    				<td>
+			    					<div class="uk-form-width-medium">
+			    						<input id="globalMigrationSlider_p5" class="slider" type="range" min=0 max=30 step=1 value=0>
+			    					</div>
+			    				</td>
+			    				<td>
+			    					<div class="uk-form-width-medium">
+			    						<span id="globalMigrationBadge_p5" class="uk-badge uk-badge-notification">0</span>
+			    					</div>
+			    				</td>
+			    			</tr>
+			    			<tr>
+			    				<td><button id="infect_btn" class="uk-button uk-button-primary uk-button-small" href="">Infect Someone</button> </td>
+			    				<td>
+			    					<button id="restart_btn" class="uk-button uk-button-primary uk-button-small" href="">Restart Simulation</button> 
+			    				</td>
+			    			</tr>
+			    		</tbody>
+			    	</table>
+			    	<p>
+			    		I've reset the local visitors per day to 10, and the global visitors to 0. You can play with these sliders to setup the kind of structured world you want to watch a pandemic spread through. 
+			    	</p>
+			    	<p>
+			    		Infected agents will show up white in the main population view and the contact graph. I removed the border colors in this version to declutter the visuals a bit, but there are still exposed, infected, and recovered agents like <a href="https://infectiousmatter.com" class="uk-link-muted" target="_blank">last time</a>. The plot on the left will show these as the pandemic progresses. You can always mouse over the graph to see the labels and counts. 
+			    	</p>
+			    	<p>
+			    		Once you're ready to start the pandemic, press the <b>Infect Someone</b> button to expose a random individual. You can press it multiple times to seed multiple infections if you like, but one is almost always enough.
+			    	</p>
+
+			    	<p id="plot_marker" uk-scrollspy="repeat:true;">
+			    		You can start over by pressing the <b>Restart Simulation</b> to start as many virtual pandemics as you'd like! 
+			    	</p>
+
+
+				</article>
+			</div>
+
+			<div uk-height-viewport >
+				<article class="uk-article uk-margin-xsmall-top" id="page5">
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">A Few Things to Try</a></h1>
+
+				    <p class="uk-text-lead" uk-scrollspy="cls: uk-animation-fade; repeat: true;">I'm going to temporarily disable the controls</p>
+				    <p>
+				    	If you want the controls back after playing with some of these scenarios, all you have to do is scroll up.
+				    </p>
+
+				    <p> 
+				    	Let's imagine there are 10 total migrating agents per day, and we can split them up between local or global visitors. Looking at the pathogen spread if they were all local versus if they were all global would be an interesting first comparison!
+				    </p>
+				    <p>
+				    	Click the buttons below to run these scenarios automatically with a random agent exposed after 2 days. 
+					</p>
+					<p class="uk-margin-large-top">
+					<button id="local_10_btn" class="uk-button uk-button-primary uk-button-small" href="">All Local</button>
+					
+					<button id="global_10_btn" class="uk-button uk-button-primary uk-button-small" href="">All Global</button>
+					</p>
+					<p>
+						It's shocking how much slower the pandemic spread is when there are only local visitors, isn't it?! Here's a few screenshots I grabbed while running it myself. 
+
+					</p>
+					<div class="uk-child-width-1-2@m" uk-grid>
+					    <div>
+					        <div class="uk-card uk-card-small uk-box-shadow-small">
+					            <div class="uk-card-media-top">
+					                <img src="../assets/img/all_local.png" alt="">
+					            </div>
+					            <div class="uk-card-body">
+					                <h4>All Local Visitors</h4>
+					            </div>					            
+					        </div>
+					    </div>
+				    <div>
+					        <div class="uk-card uk-card-small uk-box-shadow-small">								
+								<div class="uk-card-media-top">
+					                <img src="../assets/img/all_global.png" alt="">
+					            </div>
+								<div class="uk-card-body">
+					                <h4>All Global Visitors</h4>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+
+				    <p class="uk-text-lead uk-margin-large-top" uk-scrollspy="cls: uk-animation-fade; repeat: true;">
+				    	Now Let's Try With *Mostly* Local Visitors
+				    </p>
+
+					<button id="8_2_btn" class="uk-button uk-button-primary uk-button-small" href="">8-2 Local-Global</button>
+					
+					<button id="9_1_btn" class="uk-button uk-button-primary uk-button-small" href="">9-1 Local-Global</button>
+
+				    <p class="uk-margin-xlarge-top">
+				    	Although clearly slower than the All Global scenario, the pandemic still spreads surprisingly fast with just one or two global visitors!
+				    </p>
+
+				</article>
+
+				<div class="uk-card uk-card-secondary uk-card-body uk-margin-xlarge">
+					<h3 class="uk-card-title">Where do we go from here?</h3>
+					<p>
+						Somewhere local, hopefully. Better yet, nowhere if you can help it. As you've seen first-hand, even a little bit of exposure between communities can dramatically speed up the spread of a pathogen. Right now, we need to make our world <b>bigger</b>, not <b>smaller</b>.
+					</p>
+
+					<p>
+						Hopefully you can see why these seemingly draconian lockdown orders have been used to limit the spread of COVID-19. They work!
+					</p>
+					<p>
+						But, I do understand that people can't stay home forever. We need to figure out the best ways to <b>safely</b> move forward. I'm afraid that too many people are equating the lockdown loosening with this pandemic becoming less serious.
+					</p>
+
+					<p>
+						That's a deadly mistake.
+					</p>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="uk-width-1-6 uk-flex-column uk-flex-right uk-align-right uk-margin-xlarge-top">
+		    <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset: 480" uk-sticky="offset: 200">
+	    		<li><a href="#page1">It's a Small World</a></li>
+	    		<li><a href="#page2">Local Movement</a></li>
+	    		<li><a href="#page3">Global Movement</a></li>
+	    		<li><a href="#page4">Small World Pandemic</a></li>
+	    		<li><a href="#page5">A Few Things to Try</a></li>
+
+			</ul>
+
+		</div>
+	</div>
+
+	<script src="bundle_smallworld.js" charset="UTF-8"></script>
+	</body>
+</html>
