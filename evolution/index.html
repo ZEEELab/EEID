@@ -102,15 +102,15 @@
 					<p>But evolutionary misconceptions can become misinformation overnight.</p>
 					
 					<p>
-						Recently some unpublished research made a big media splash because it claimed that a new, more contagious, strain of SARS-CoV-2 (the virus that causes COVID-19) had been spreading. Thanks to an amazing community of scientists and science reporters, this unproven claim was quickly addressed. 
+						Recently some unpublished research made a big media splash because it claimed that a new and more contagious strain of SARS-CoV-2 (the virus that causes COVID-19) had been spreading. Thanks to an amazing community of scientists and science reporters, this unproven claim was quickly addressed. 
 
 					</p>
 					<p>
-						One of my favorite articles is <a href="https://www.theatlantic.com/health/archive/2020/05/coronavirus-strains-transmissible/611239/" target="_blank" class="uk-link-muted">this peice</a> in The Atlantic by the fantastic Ed Yong. A <a href="https://undark.org/2020/05/14/covid-19-evolution-mutation/" class="uk-link-muted" target="_blank">slightly more technical</a> article by Jeremy Draghi and Brandon Ogbunu did a nice job of laying out the evolutionary flaws in the original study. 
+						One of my favorite articles is <a href="https://www.theatlantic.com/health/archive/2020/05/coronavirus-strains-transmissible/611239/" target="_blank" class="uk-link-muted">this piece</a> in The Atlantic by the fantastic Ed Yong. A <a href="https://undark.org/2020/05/14/covid-19-evolution-mutation/" class="uk-link-muted" target="_blank">slightly more technical</a> article by Jeremy Draghi and Brandon Ogbunu lays out the evolutionary flaws in the original study nicely. 
 					</p>
 
 					<p>
-						While I was working on this walkthrough, a really nice analysis of 15,000 genomes came out. There's a great thread walking through the main findings, but here's one tweet that nicely sums up the main result.
+						While I was working on this walkthrough, a new analysis of 15,000 genomes came out. There's a great thread walking through the main findings, but here's one tweet that sums up the main result.
 					</p>
 
 					<blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">No single mutation having emerged recurrently to this day is significantly associated with increased transmission of <a href="https://twitter.com/hashtag/SARSCoV2?src=hash&amp;ref_src=twsrc%5Etfw">#SARSCoV2</a>. Instead, all those mutations are neutral or deleterious to the virus&#39; transmission, some significantly so.<br>(3/5)<a href="https://t.co/NxIlUcFDE9">https://t.co/NxIlUcFDE9</a> <a href="https://t.co/z5p6z26jKl">pic.twitter.com/z5p6z26jKl</a></p>&mdash; Prof Francois Balloux (@BallouxFrancois) <a href="https://twitter.com/BallouxFrancois/status/1263745881255354368?ref_src=twsrc%5Etfw">May 22, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -143,7 +143,7 @@
 
 				    <p class="uk-text-lead" id="page2" uk-scrollspy="cls: uk-animation-fade; repeat: true;">In Living Color</p>
 				    <p>
-				    	We'll start by coloring all of the susceptible agents in a darkish gray tone. Now we can use color to visualize the differences in the pathogens that are spreading through the world. You'll see a single agent become infected and turn light blue. As the pathogen spreads and more agents become infected, you'll see them also turn blue.
+				    	We'll start by coloring all of the susceptible agents in shades of gray to black. As the pathogen spreads and agents become infected, you'll see them turn blue. Now we can use color to visualize the differences in pathogens spreading through the world.
 					</p>
 					<div  id="sim_div" uk-sticky class="uk-align-center" style="height:355; background: rgba(255, 255, 255, 0.95); z-index: 100">
 						<div id="simContainer">
@@ -154,7 +154,7 @@
 					</div>
 
 					<p>
-						When a pathogen (like a virus) is replicating within its host, mutations are constalty produced by chance. Most of the time these mutations are harmful to the pathogen (or <b>Deleterious</b>), sometimes they have no effect at all (<b>Neutral</b>), and very rarely they improve the pathogen's fitness and are considered <b>Beneficial</b>. 
+						When a pathogen (like a virus) is replicating within its host, mutations are constantly produced by chance. Most of the time these mutations are harmful to the pathogen (or <b>Deleterious</b>), sometimes they have no effect at all (<b>Neutral</b>), and very rarely they improve the pathogen's fitness and are considered <b>Beneficial</b>. 
 					</p>
 
 				    <p>
@@ -170,7 +170,7 @@
 				<article class="uk-article">
 					<p class="uk-text-lead">We'll visualize these neutral mutations by changing the color of the infected agent.</p>
 
-				    <div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-300">
+				    <div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-75">
 				    	
 				    	<div class="uk-card">
 					        <div class="uk-card uk-card-default uk-card-body img_container uk-height-small uk-padding-large" data-src="../assets/img/evolution/one_agent.png" uk-img>
@@ -182,7 +182,7 @@
 				   		The light blue color you've been watching spread through the world is really just an arbitrary starting position in this color scale. 
 				   	</p>
 
-				   	<div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-300">
+				   	<div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-75">
 				    	
 				    	<div class="uk-card">
 					        <div class="uk-card uk-card-default uk-card-body img_container uk-height-small" data-src="../assets/img/evolution/one_agent.png" uk-img>
@@ -196,13 +196,13 @@
 					    </div>
 					</div>	
 				 	<p>
-				   		I haven't turned on pathogen mutations yet, so every new infected agent has the same color. In other words, there is only one <b>Genotype</b> of the pathogen right now, the light blue one. 
+				   		I haven't turned on pathogen mutations yet, so every new infected agent has the same color. In other words, there is only one <b>Genotype</b> of the pathogen right now - the light blue one. 
 				   	</p>
 				   	<p>
-				   		The term <b>Genotype</b> lets us talk about groups of organisms that share the same set of mutations. We don't call these different <b>Strains</b> because none of these mutations affect how the pathogen behaves. Remember, we're only simulating neutral mutations. 
+				   		The term <b>Genotype</b> lets us refer to groups of organisms that share the same set of mutations. We don't call these different <b>Strains</b> because none of these mutations affect how the pathogen behaves. Remember, we're only simulating neutral mutations. 
 				   	</p>
 
-				   	<div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-300">
+				   	<div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-75">
 				    	
 				    	<div class="uk-card">
 					        <div class="uk-card uk-card-default uk-card-body img_container uk-height-small" data-src="../assets/img/evolution/one_agent.png" uk-img>
@@ -250,7 +250,7 @@
 						We're going to build up a similar visualization of the <b>Phylogenetic Network</b> for our evolving pathogen! 
 					</p>
 
-				    <div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-300">
+				    <div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-75">
 				    	
 				    	<div class="uk-card">
 					        <div class="uk-card uk-card-default uk-card-body img_container uk-height-small uk-padding-large" data-src="../assets/img/evolution/one_phylonet.png" uk-img>
@@ -258,9 +258,9 @@
 					    </div>
 					</div>
 					<p>
-						Everytime a new infection occurs, we'll add a node to the phylogenetic network and color it based on the genotype of the new pathogen. We'll connect this <b>Child</b> genotype node to it's <b>Parent</b> genotype in the network by drawing an edge between the two.
+						Every time a new infection occurs, we'll add a node to the phylogenetic network and color it based on the genotype of the new pathogen. We'll connect this <b>Child</b> genotype node to it's <b>Parent</b> genotype in the network by drawing an edge between the two.
 					</p>
-					<div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-300">
+					<div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-75">
 				    	
 				    	<div class="uk-card">
 					        <div class="uk-card uk-card-default uk-card-body img_container uk-height-small uk-padding-large" data-src="../assets/img/evolution/one_phylonet.png" uk-img>
@@ -278,7 +278,7 @@
 					<p>
 						If there are no mutations, then every new node we add is connected to the original pathogen genotype. What you would expect to see in this case is a kind of star network. In order to escape this star, we need mutations to create new genotypes! 
 					</p>
-					<div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-300">
+					<div class="uk-child-width-1-4@m" uk-grid uk-grid-match uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; repeat: true; offset-top:-75">
 				    	
 				    	<div class="uk-card">
 					        <div class="uk-card uk-card-default uk-card-body img_container uk-height-small uk-padding-large" data-src="../assets/img/evolution/one_phylonet.png" uk-img>
@@ -301,7 +301,7 @@
 						With mutations, we get more interesting networks that depict the genetic relationships between pathogens! You might even see a new genotype spreading, like the pathogens pictured above with dark blue nodes. 
 					</p>
 					<p>
-						Let's turn the Phylogenetic Netowrk on in our simulation now. 
+						Let's turn the Phylogenetic Network on in our simulation now. 
 					</p>
 				</article>
 			</div>
@@ -311,9 +311,9 @@
 
 				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">It's (still) a small world</a></h1>
 
-				    <p class="uk-text-lead" id="page4" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Bringing back the controlls</p>
+				    <p class="uk-text-lead" id="page4" uk-scrollspy="cls: uk-animation-fade; repeat: true;">Bringing back the controls</p>
 				   	<p>
-					Like in the <a href="https://infectiousmatter.com/smallworld/" target="_blank" class="uk-link-muted">Small World walkthrough</a>, there is a combination of local and global movememnt between locations. You can control the number of these visitors using the sliders below.
+					Like in the <a href="https://infectiousmatter.com/smallworld/" target="_blank" class="uk-link-muted">Small World walkthrough</a>, there is a combination of local and global movement between locations. You can control the number of these visitors using the sliders below.
 					</p>
 
 					<p>
