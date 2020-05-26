@@ -73,7 +73,6 @@
 		</style>
 		<link rel="stylesheet" href="../assets/css/uikit.min.css">
 		<link rel="stylesheet" href="../assets/css/slider_style.css">
-
 	</head>
 	<body>
 
@@ -152,11 +151,41 @@
 				    <p>
 				    	We'll start by coloring all of the susceptible agents in shades of gray to black. As the pathogen spreads and agents become infected, you'll see them turn blue. Now we can use color to visualize the differences in pathogens spreading through the world.
 					</p>
-					<div  id="sim_div" uk-sticky class="uk-align-center" style="height:355; background: rgba(255, 255, 255, 0.95); z-index: 100">
+
+					<div id="sim_div" uk-sticky class="uk-align-center" style="height:355; background: rgba(255, 255, 255, 0.95); z-index: 100">
 						<div id="simContainer">
-							<div class="no_wrap" id="phyloDiv"></div>
-							<div class="no_wrap  uk-box-shadow-medium" id="matterDiv"></div>
-							<div class="no_wrap" id="graphDiv"></div>
+							<div class="no_wrap uk-inline" id="phyloDiv">
+								<div class="uk-position-bottom-left">
+									<table >
+										<tbody>
+										<tr>
+						    				<td>
+						    					<button id="zoom_in" class="uk-button uk-button-default uk-button-small" href="">+</button> </td>
+						    				<td>
+						    					<button id="zoom_out" class="uk-button uk-button-default uk-button-small" href="">-</button> 
+						    				</td>
+						    				<td>
+						    					<button id="zoom_auto" class="uk-button uk-button-default uk-button-small" href="">Auto</button> 
+						    				</td>
+						    			</tr>
+						    			</tbody>
+						    		</table>
+								</div>
+								
+								<div class="uk-dark uk-position-top-center" style="background: rgba(255, 255, 255, 0.25)">
+									Phylogenetic Network
+								</div>
+							</div>
+
+							<div class="no_wrap  uk-box-shadow-medium uk-inline" id="matterDiv">
+
+							</div>
+
+							<div class="no_wrap uk-inline" id="graphDiv">
+								<div class="uk-dark uk-position-top-center" style="background: rgba(255, 255, 255, 0.25)">
+									Contact Network
+								</div>
+							</div>
 						</div>
 					</div>
 
@@ -417,17 +446,6 @@
 							Although there is currently only one strain of SARS-CoV-2, the strain we have is particularly good at spreading! It's important that you keep doing your part to reduce transmission <b>especially</b> now that lockdown restrictions are being lifted. That includes staying home as much as you can, wearing masks while in public, keeping at least 6 feet of distance between people, and washing your hands often.
 						</div>
 					</p>
-
-						<table>
-							<tbody>
-							<tr>
-			    				<td><button id="zoom_in" class="uk-button uk-button-primary uk-button-small" href="">Zoom In</button> </td>
-			    				<td>
-			    					<button id="zoom_out" class="uk-button uk-button-primary uk-button-small" href="">Zoom Out</button> 
-			    				</td>
-			    			</tr>
-			    			</tbody>
-			    		</table>
 				</article>
 
 			</div>
@@ -443,7 +461,7 @@
 		</div>
 	</div>
 
-	<script src="bundle_evosim.js" charset="UTF-8"></script>
+	<script src="bundle_evosim.min.js" charset="UTF-8"></script>
 	</body>
 </html>
 
