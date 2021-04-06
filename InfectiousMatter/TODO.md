@@ -1,2 +1,0 @@
-- Add congregation locations -- e.g., grocery stores, classrooms
-- Add hospital/quarantine location
